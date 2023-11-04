@@ -48,6 +48,28 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\TipoEstado.cs" />
+    <Compile Include="Enum\TipoFigura.cs" />
+    <Compile Include="Interfaces\Factory\Ifiguras_Factory.cs" />
+    <Compile Include="Interfaces\Icomprobar_repetido.cs" />
+    <Compile Include="Interfaces\Iinformacion.cs" />
+    <Compile Include="Interfaces\Ilista_figura.cs" />
+    <Compile Include="Interfaces\IObservador_colision.cs" />
+    <Compile Include="Interfaces\Managements\Ibloques_management.cs" />
+    <Compile Include="Interfaces\Managements\Ibolas_management.cs" />
+    <Compile Include="Interfaces\Managements\Ifiguras_management.cs" />
+    <Compile Include="Interfaces\Managements\Iplataformas_management.cs" />
+    <Compile Include="Interfaces\Repositorios\IRepositorio.cs" />
+    <Compile Include="Modelos\Bloque.cs" />
+    <Compile Include="Modelos\Bola.cs" />
+    <Compile Include="Modelos\Datos_bancarios.cs" />
+    <Compile Include="Modelos\Figura.cs" />
+    <Compile Include="Modelos\Figura_Velocidad.cs" />
+    <Compile Include="Modelos\Jugador.cs" />
+    <Compile Include="Modelos\Password.cs" />
+    <Compile Include="Modelos\Plataforma.cs" />
+    <Compile Include="Modelos\Puntuacion.cs" />
+    <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
