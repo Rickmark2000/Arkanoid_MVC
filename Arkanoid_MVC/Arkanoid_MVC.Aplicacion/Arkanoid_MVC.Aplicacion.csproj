@@ -83,5 +83,11 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Arkanoid_MVC.Domino\Arkanoid_MVC.Domino.csproj">
+      <Project>{32B83D48-959A-48B3-8713-BD1EACBD793B}</Project>
+      <Name>Arkanoid_MVC.Domino</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

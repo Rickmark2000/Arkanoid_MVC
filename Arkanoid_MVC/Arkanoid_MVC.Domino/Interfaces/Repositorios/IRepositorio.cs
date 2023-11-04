@@ -8,15 +8,15 @@ namespace ArkanoidProyecto.Modelo.Interfaces.Repositorios
 {
     public interface IRepositorio<Entity> where Entity : class
     {
-        public Task registrar(Entity entity);
+        Task registrar(Entity entity);
 
-        public Task registrar(List<Entity> entity);
+         Task registrar(List<Entity> entity);
 
-        public Task eliminar(Entity entity);
+        Task eliminar(Entity entity);
 
-        public Task buscar(Entity entity);
+        Task buscar(Entity entity);
 
-        public Task leer();
+        Task leer();
 
     }
 }

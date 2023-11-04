@@ -8,6 +8,6 @@ namespace ArkanoidProyecto.Modelo.Interfaces
 {
     public interface Icomprobar_repetido<Entity>
     {
-        public bool repetido(Entity entity);
+        bool repetido(Entity entity);
     }
 }

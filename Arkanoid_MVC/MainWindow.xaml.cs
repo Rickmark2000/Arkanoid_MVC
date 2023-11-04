@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArkanoidProyecto.Controladores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -40,6 +41,7 @@ namespace Arkanoid_MVC
         {
             InitializeComponent();
             setupGame();
+            Diseño d = new Diseño(4);
         }
 
 

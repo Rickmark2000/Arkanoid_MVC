@@ -8,6 +8,6 @@ namespace ArkanoidProyecto.Modelo.Interfaces
 {
     public interface Ilista_figura<T>
     {
-        public List<T> listaObjetos { get; set; }
+         List<T> listaObjetos { get; set; }
     }
 }

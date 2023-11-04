@@ -8,6 +8,6 @@ namespace ArkanoidProyecto.Modelo.Interfaces
 {
     public interface IObservador_colision<T> where T : class
     {
-        public string estado(T entity);
+       string estado(T entity);
     }
 }

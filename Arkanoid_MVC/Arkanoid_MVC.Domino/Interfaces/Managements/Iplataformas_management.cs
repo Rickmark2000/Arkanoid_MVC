@@ -8,6 +8,6 @@ namespace ArkanoidProyecto.Modelo.Interfaces.Managements
 {
     public interface Iplataformas_management : Ifiguras_management
     {
-        public void anadir_valores(int velocidad, float tamano);
+        void anadir_valores(int velocidad, float tamano);
     }
 }

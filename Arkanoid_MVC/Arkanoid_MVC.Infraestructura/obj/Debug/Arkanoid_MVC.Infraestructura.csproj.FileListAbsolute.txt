@@ -1,0 +1,4 @@
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC.Infraestructura\obj\Debug\Arkanoid_MVC.Infraestructura.csproj.AssemblyReference.cache
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC.Infraestructura\obj\Debug\Arkanoid_MVC.Infraestructura.Properties.Resources.resources
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC.Infraestructura\obj\Debug\Arkanoid_MVC.Infraestructura.csproj.GenerateResource.cache
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC.Infraestructura\obj\Debug\Arkanoid_MVC.Infraestructura.csproj.CoreCompileInputs.cache

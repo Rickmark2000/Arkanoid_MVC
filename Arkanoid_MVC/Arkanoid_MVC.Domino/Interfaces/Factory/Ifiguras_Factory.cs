@@ -9,8 +9,8 @@ namespace ArkanoidProyecto.Modelo.Interfaces.Factory
 {
     public interface Ifiguras_Factory<Entyti> where Entyti : Figura
     {
-        public Entyti crear(int tamano);
-        public Entyti crear();
+         Entyti crear(int tamano);
+        Entyti crear();
 
     }
 }

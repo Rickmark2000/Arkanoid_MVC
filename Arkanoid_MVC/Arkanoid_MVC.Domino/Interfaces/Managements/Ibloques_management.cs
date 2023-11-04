@@ -9,6 +9,6 @@ namespace ArkanoidProyecto.Modelo.Interfaces.Managements
     public interface Ibloques_management : Ifiguras_management, Ilista_figura<Bloque>
     {
         void anadir_valores(int numGolpes,int tamano);
-        public void destruir(int id);
+        void destruir(int id);
     }
 }
