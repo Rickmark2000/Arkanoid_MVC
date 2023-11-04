@@ -1,0 +1,15 @@
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\Arkanoid_MVC.csproj.AssemblyReference.cache
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\MainWindow.g.cs
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\App.g.cs
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\Arkanoid_MVC_MarkupCompile.cache
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\Arkanoid_MVC_MarkupCompile.lref
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.exe.config
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.exe
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.pdb
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\MainWindow.baml
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\Arkanoid_MVC.g.resources
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\Arkanoid_MVC.Properties.Resources.resources
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\Arkanoid_MVC.csproj.GenerateResource.cache
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\Arkanoid_MVC.csproj.CoreCompileInputs.cache
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\Arkanoid_MVC.exe
+C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\Debug\Arkanoid_MVC.pdb
