@@ -42,13 +42,19 @@ namespace Arkanoid_MVC
         Random random = new Random();
         public MainWindow()
         {
+            List<Jugadores> j = new List<Jugadores>();
+            Jugadores o;
             InitializeComponent();
             setupGame();
-            List<Jugadores> j = new List<Jugadores> ();
             var connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
             ContextArkanoid c = new ContextArkanoid(connectionString);
             j = c.jugadores.ToList();
-            label_Copiar.Content = j.ElementAt(0).ToString();
+            Console.WriteLine(c.jugadores.Count());
+            o = j.ElementAt(0);
+            label_Copiar.Content = o.ToString();
+            Jugadores op = new Jugadores(3, 1, 32, "roi", 3);
+            c.jugadores.Add(op);
+            c.SaveChanges();
         }
 
 
