@@ -22,7 +22,6 @@ namespace ArkanoidProyecto.Modelo.Patron_repositorio
             this.jugador = jugador;
             listaObjetos = new List<Jugador>();
             this.context = context;
-            this.context.jugadores.Add(jugador);
         }
 
         public Jugador_repositorio()

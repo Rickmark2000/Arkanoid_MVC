@@ -1,6 +1,9 @@
-﻿using ArkanoidProyecto.Controladores;
+﻿using Arkanoid.Dominio.Modelos;
+using ArkanoidProyecto.Controladores;
+using ArkanoidProyecto.Modelo.Patron_repositorio;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -41,7 +44,11 @@ namespace Arkanoid_MVC
         {
             InitializeComponent();
             setupGame();
-            Diseño d = new Diseño(4);
+            List<Jugadores> j = new List<Jugadores> ();
+            var connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
+            ContextArkanoid c = new ContextArkanoid(connectionString);
+            j = c.jugadores.ToList();
+            label_Copiar.Content = j.ElementAt(0).ToString();
         }
 
 

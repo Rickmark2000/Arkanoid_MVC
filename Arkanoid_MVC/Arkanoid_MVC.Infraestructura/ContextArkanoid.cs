@@ -1,4 +1,5 @@
 ﻿
+using Arkanoid.Dominio.Modelos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,7 @@ namespace ArkanoidProyecto.Modelo.Patron_repositorio
     public class ContextArkanoid:DbContext
     {
         private string _context;
-        public DbSet<Jugador> jugadores { get; set; }
-        public DbSet<Puntuacion> puntuacions { get; set; }
+        public DbSet<Jugadores> jugadores { get; set; }
         public ContextArkanoid(string context)
         {
             this._context = context;
@@ -22,7 +22,10 @@ namespace ArkanoidProyecto.Modelo.Patron_repositorio
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer(_context);
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;" +
+              "AttachDbFilename=C:\\Users\\ricardsanchez\\AppData\\Local\\Microsoft" +
+              "\\Microsoft SQL Server Local DB\\Instances" +
+              "\\MSSQLLocalDB\\Arkanoid.mdf;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
