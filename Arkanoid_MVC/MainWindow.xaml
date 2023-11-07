@@ -4,11 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arkanoid_MVC"
-                        PreviewKeyDown="Grid_KeyDown"
-PreviewKeyUp="Grid_KeyUp"
-                     mc:Ignorable="d"
-Title="MainWindow" Height="500" Width="800"
-SizeChanged="Window_SizeChanged">
+        Name="ventana"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800"
+        SizeChanged="Window_SizeChanged">
     <Grid Name="gridJuego">
         <Canvas Name="CanvasJuego" Background="AliceBlue" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}" 
       Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Window}}">

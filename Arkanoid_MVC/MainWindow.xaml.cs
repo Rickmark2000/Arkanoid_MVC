@@ -20,6 +20,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Microsoft.Data.SqlClient;
+using ArkanoidProyecto.Controladores.Controles;
 
 namespace Arkanoid_MVC
 {
@@ -40,6 +41,7 @@ namespace Arkanoid_MVC
         Rectangle s;
         int score;
         Rectangle[] rect = new Rectangle[8];
+        Controles controles;
 
         Random random = new Random();
         public MainWindow()
@@ -47,7 +49,7 @@ namespace Arkanoid_MVC
             List<Jugadores> j = new List<Jugadores>();
             InitializeComponent();
             setupGame();
-
+            controles = new Controles(ventana);
             var connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
 
             ContextArkanoid conexion = new ContextArkanoid(connectionString);
@@ -102,19 +104,17 @@ namespace Arkanoid_MVC
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            double limiteIzquierdo = 0, limiteDerecho = 0;
-            bool eslimiteDerecho = false, eslimiteIzquierdo = false;
             label.Content = goLeft;
             Canvas.SetTop(ball, this.posicionY += velocidadY);
             Canvas.SetLeft(ball, this.posicionX += velocidadX);
             s = (Rectangle)FindName("plataforma");
             Canvas.SetLeft(s, anchoPantalla / 2 - s.Width / 2);
-            limiteIzquierdo = 0;
-            limiteDerecho = CanvasJuego.ActualWidth - s.Width;
             Canvas.SetLeft(s, posX);
             double posicionX = Canvas.GetLeft(s);
             double posicionPlataforma = Canvas.GetLeft(s);
             Canvas.GetTop(s);
+
+            controles.mover(s, ref posX, CanvasJuego);
 
             if (Canvas.GetTop(ball) + ball.Height >= (Math.Abs(CanvasJuego.Height - ball.Height)))
             {
@@ -165,60 +165,6 @@ namespace Arkanoid_MVC
                     score++;
                     rect[i] = null;
                 }
-            }
-            if (Canvas.GetLeft(s) < limiteIzquierdo)
-            {
-                eslimiteIzquierdo = true;
-            }
-            else
-            {
-                eslimiteIzquierdo = false;
-            }
-
-            if (Canvas.GetLeft(s) > limiteDerecho)
-            {
-                eslimiteDerecho = true;
-            }
-            else
-            {
-                eslimiteDerecho = false;
-            }
-
-
-            if (goLeft && !eslimiteIzquierdo)
-            {
-
-                posX -= 4;
-            }
-            if (goRight && !eslimiteDerecho)
-            {
-                posX += 4;
-            }
-        }
-
-        private void Grid_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (!isGameOver)
-            {
-                if (e.Key == Key.Left)
-                {
-                    goLeft = true;
-                }
-                else if (e.Key == Key.Right) { goRight = true; }
-            }
-
-        }
-
-        private void Grid_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (!isGameOver)
-            {
-
-                if (e.Key == Key.Left)
-                {
-                    goLeft = false;
-                }
-                else if (e.Key == Key.Right) { goRight = false; }
             }
         }
 
