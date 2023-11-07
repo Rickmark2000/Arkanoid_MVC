@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace ArkanoidProyecto.Modelo.Enumeracion
 {
-    public enum TipoEstado { EnPlataforma, fuera, choqueBloque, pared }
+    public enum TipoEstado { EnPlataforma, fuera, choqueBloque, pared,techo }
 }

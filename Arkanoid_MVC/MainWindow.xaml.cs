@@ -21,6 +21,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Microsoft.Data.SqlClient;
 using ArkanoidProyecto.Controladores.Controles;
+using ArkanoidProyecto.Controladores.Patron_observer;
 
 namespace Arkanoid_MVC
 {
@@ -36,17 +37,21 @@ namespace Arkanoid_MVC
         double anchoPantalla, velocidadX = 2, velocidadY = 2;
         private
             double posX = 0;
-        Rectangle s;
         int score;
         Rectangle[] rect = new Rectangle[8];
         Controles controles;
+        Diseño diseño;
+        Comprobar_colisiones comprobar;
+        string estado;
 
         Random random = new Random();
         public MainWindow()
         {
             InitializeComponent();
             controles = new Controles(ventana);
-            var connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
+            diseño = new Diseño(8);
+            comprobar = new Comprobar_colisiones();
+            string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
             Jugador_repositorio jugador_Repositorio = new Jugador_repositorio(connectionString);
 
             setupGame();
@@ -102,65 +107,21 @@ namespace Arkanoid_MVC
             label.Content = goLeft;
             Canvas.SetTop(ball, this.posicionY += velocidadY);
             Canvas.SetLeft(ball, this.posicionX += velocidadX);
-            s = (Rectangle)FindName("plataforma");
-            Canvas.SetLeft(s, anchoPantalla / 2 - s.Width / 2);
-            Canvas.SetLeft(s, posX);
-            double posicionX = Canvas.GetLeft(s);
-            double posicionPlataforma = Canvas.GetLeft(s);
-            Canvas.GetTop(s);
+            Canvas.SetLeft(plataforma, anchoPantalla / 2 - plataforma.Width / 2);
+            Canvas.SetLeft(plataforma, posX);
+            double posicionX = Canvas.GetLeft(plataforma);
+            double posicionPlataforma = Canvas.GetLeft(plataforma);
+            Canvas.GetTop(plataforma);
 
-            controles.mover(s, ref posX, CanvasJuego);
+            estado =comprobar.estado(ball,CanvasJuego,plataforma,rect);
+            controles.mover(plataforma, ref posX, CanvasJuego);
 
-            if (Canvas.GetTop(ball) + ball.Height >= (Math.Abs(CanvasJuego.Height - ball.Height)))
-            {
+           
 
-
-                isGameOver = true;
-
-            }
-
-            if (Canvas.GetTop(ball) < 0)
-            {
-
-                velocidadY *= -1;
-            }
-            if (Canvas.GetLeft(ball) + ball.Width > CanvasJuego.Width || Canvas.GetLeft(ball) < 0)
-            {
-
-                velocidadX *= -1;
-
-            }
-
-            Rect sd = new Rect(Canvas.GetLeft(s), Canvas.GetTop(s), s.Width, s.Height);
-            Rect SD2 = new Rect(Canvas.GetLeft(ball), Canvas.GetTop(ball), ball.Width, ball.Height);
+            
 
 
-
-            if (sd.IntersectsWith(SD2))
-            {
-                double ballCenterX = Canvas.GetLeft(ball) + ball.Width / 2;
-                double platformCenterX = Canvas.GetLeft(s) + s.Width / 2;
-                velocidadY *= -1;
-
-
-            }
-
-            for (int i = 0; i < rect.Length; i++)
-            {
-                Rect eas = new Rect();
-                if (rect[i] != null)
-                {
-                    eas = new Rect(Canvas.GetLeft(rect[i]), Canvas.GetTop(rect[i]), rect[i].Width, rect[i].Height);
-                }
-
-                if (eas.IntersectsWith(SD2))
-                {
-                    velocidadY *= -1;
-                    CanvasJuego.Children.Remove(rect[i]);
-                    score++;
-                    rect[i] = null;
-                }
-            }
+       
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

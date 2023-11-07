@@ -199,7 +199,7 @@
     <Compile Include="Patron factory\Bolas_Factory.cs" />
     <Compile Include="Patron factory\Figuras_factory.cs" />
     <Compile Include="Patron factory\Plataformas_Factory.cs" />
-    <Compile Include="Patron observer\Comprobar_colision_bola.cs" />
+    <Compile Include="Patron observer\Comprobar_colisiones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
