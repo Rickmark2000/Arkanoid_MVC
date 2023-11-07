@@ -119,3 +119,5 @@ C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\Arkanoid_MVC.Infraestructur
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\Arkanoid_MVC.Infraestructura\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\Arkanoid_MVC.Infraestructura\bin\Debug\System.Text.Json.xml
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\Arkanoid_MVC.Infraestructura\bin\Debug\System.ValueTuple.xml
+C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\Arkanoid_MVC.Infraestructura\bin\Debug\DB\Arkanoid.ldf
+C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\Arkanoid_MVC.Infraestructura\bin\Debug\DB\Arkanoid.mdf

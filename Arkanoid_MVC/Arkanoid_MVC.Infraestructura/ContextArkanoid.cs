@@ -21,11 +21,9 @@ namespace ArkanoidProyecto.Modelo.Patron_repositorio
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;" +
-              "AttachDbFilename=C:\\Users\\ricardsanchez\\AppData\\Local\\Microsoft" +
-              "\\Microsoft SQL Server Local DB\\Instances" +
-              "\\MSSQLLocalDB\\Arkanoid.mdf;Trusted_Connection=True;");
+            string proyectoRaiz = System.IO.Path.GetFullPath(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
+            AppDomain.CurrentDomain.SetData("DataDirectory", proyectoRaiz);
+            optionsBuilder.UseSqlServer(_context);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

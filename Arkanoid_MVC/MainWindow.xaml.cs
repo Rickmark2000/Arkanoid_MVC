@@ -4,6 +4,7 @@ using ArkanoidProyecto.Modelo.Patron_repositorio;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -18,6 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Microsoft.Data.SqlClient;
 
 namespace Arkanoid_MVC
 {
@@ -43,18 +45,15 @@ namespace Arkanoid_MVC
         public MainWindow()
         {
             List<Jugadores> j = new List<Jugadores>();
-            Jugadores o;
             InitializeComponent();
             setupGame();
+
             var connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-            ContextArkanoid c = new ContextArkanoid(connectionString);
-            j = c.jugadores.ToList();
-            Console.WriteLine(c.jugadores.Count());
-            o = j.ElementAt(0);
-            label_Copiar.Content = o.ToString();
-            Jugadores op = new Jugadores(3, 1, 32, "roi", 3);
-            c.jugadores.Add(op);
-            c.SaveChanges();
+
+            ContextArkanoid conexion = new ContextArkanoid(connectionString);
+            Console.WriteLine(conexion.jugadores.Count());
+            j = conexion.jugadores.ToList();
+            label_Copiar.Content = j.Find(n => n.nombre == "dsadsa").ToString();
         }
 
 
@@ -116,7 +115,6 @@ namespace Arkanoid_MVC
             double posicionX = Canvas.GetLeft(s);
             double posicionPlataforma = Canvas.GetLeft(s);
             Canvas.GetTop(s);
-            txtScore.Content = "Score: " + score;
 
             if (Canvas.GetTop(ball) + ball.Height >= (Math.Abs(CanvasJuego.Height - ball.Height)))
             {
