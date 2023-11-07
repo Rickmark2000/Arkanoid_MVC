@@ -10,11 +10,9 @@ namespace ArkanoidProyecto.Modelo.Interfaces.Repositorios
     {
         Task registrar(Entity entity);
 
-         Task registrar(List<Entity> entity);
-
         Task eliminar(Entity entity);
 
-        Task buscar(Entity entity);
+        Entity buscar(Entity entity);
 
         Task leer();
 

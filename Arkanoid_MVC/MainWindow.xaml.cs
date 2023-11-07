@@ -24,9 +24,7 @@ using ArkanoidProyecto.Controladores.Controles;
 
 namespace Arkanoid_MVC
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
         bool goLeft;
@@ -46,16 +44,12 @@ namespace Arkanoid_MVC
         Random random = new Random();
         public MainWindow()
         {
-            List<Jugadores> j = new List<Jugadores>();
             InitializeComponent();
-            setupGame();
             controles = new Controles(ventana);
             var connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-
-            ContextArkanoid conexion = new ContextArkanoid(connectionString);
-            Console.WriteLine(conexion.jugadores.Count());
-            j = conexion.jugadores.ToList();
-            label_Copiar.Content = j.Find(n => n.nombre == "dsadsa").ToString();
+            Jugador_repositorio jugador_Repositorio = new Jugador_repositorio(connectionString);
+            setupGame();
+            
         }
 
 
