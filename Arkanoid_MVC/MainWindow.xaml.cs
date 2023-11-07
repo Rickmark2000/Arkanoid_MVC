@@ -48,6 +48,7 @@ namespace Arkanoid_MVC
             controles = new Controles(ventana);
             var connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
             Jugador_repositorio jugador_Repositorio = new Jugador_repositorio(connectionString);
+
             setupGame();
             
         }
