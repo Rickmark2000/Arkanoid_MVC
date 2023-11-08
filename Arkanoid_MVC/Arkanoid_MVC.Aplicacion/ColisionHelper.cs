@@ -10,21 +10,20 @@ namespace Arkanoid_MVC.Aplicacion
 {
     public class ColisionHelper
     {
-        public void ColisionBola(TipoEstado tipo,ref double posX,ref double posY)
+        public void ColisionBola(EstadoBola tipo,ref double posX,ref double posY)
         {
             switch (tipo)
             {
-                case TipoEstado.EnPlataforma:
+                case EstadoBola.EnPlataforma:
+                case EstadoBola.techo:
                     posY *= -1;
                     break;
-                case TipoEstado.pared:
+                case EstadoBola.pared:
                     posX *= -1;
                     break;
-                case TipoEstado.choqueBloque:
+                case EstadoBola.choqueBloque:
                     posY *= -1;
-                    break;
-                case TipoEstado.techo:
-                    posY *= -1;
+                    posX *= -1;
                     break;
             }
         }

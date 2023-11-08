@@ -30,22 +30,19 @@ namespace Arkanoid_MVC
    
     public partial class MainWindow : Window
     {
-        bool goLeft;
-        bool goRight;
         bool isGameOver;
         private DispatcherTimer timer;
         private double posBolaInicialX, posBolaInicialY;
         double altoPantalla;
         double anchoPantalla, actualBolaX = 2, actualBolaY = 2;
-        private
-            double plataformaPosX = 0;
-        int score;
+        private double plataformaPosX = 0;
+        int score = 0;
         Rectangle[] rect = new Rectangle[8];
         Controles controles;
         Diseño diseño;
         Comprobar_colisiones comprobar;
         ColisionHelper helperColision;
-        TipoEstado estado;
+        EstadoBola estado;
 
         Random random = new Random();
         public MainWindow()
@@ -66,7 +63,6 @@ namespace Arkanoid_MVC
 
         private void setupGame()
         {
-            score = 0;
 
 
             anchoPantalla = SystemParameters.PrimaryScreenWidth;
@@ -115,7 +111,7 @@ namespace Arkanoid_MVC
             Canvas.GetTop(plataforma);
 
 
-            isGameOver = estado ==TipoEstado.fuera ? true : false;
+            isGameOver = estado ==EstadoBola.fuera ? true : false;
 
             estado = comprobar.estado(ball,CanvasJuego,plataforma,rect);
             helperColision.ColisionBola(estado,ref actualBolaX,ref actualBolaY);

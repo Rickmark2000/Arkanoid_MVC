@@ -1,12 +1,8 @@
-﻿using ArkanoidProyecto.Modelo;
-using ArkanoidProyecto.Modelo.Enumeracion;
+﻿using ArkanoidProyecto.Modelo.Enumeracion;
 using ArkanoidProyecto.Modelo.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
@@ -16,33 +12,33 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
     public class Comprobar_colisiones : IObservador_colision<Rectangle>
     {
 
-        public TipoEstado estado(Rectangle ball, Canvas element, Rectangle plataforma, Rectangle[] bloques)
+        public EstadoBola estado(Rectangle ball, Canvas element, Rectangle plataforma, Rectangle[] bloques)
         {
-            TipoEstado estado = TipoEstado.nada;
+            EstadoBola estado = EstadoBola.nada;
 
             if (detectar_colision_muro(ball, element))
             {
-                estado = TipoEstado.pared;
+                estado = EstadoBola.pared;
             }
             else if (detectar_colision_plataforma(ball, plataforma))
             {
-                estado = TipoEstado.EnPlataforma;
+                estado = EstadoBola.EnPlataforma;
             }
             else if (detectar_fuera_limite(ball, element))
             {
-                estado = TipoEstado.fuera;
+                estado = EstadoBola.fuera;
             }
             else if (detectar_colision_bloque(ball, bloques))
             {
-                estado = TipoEstado.choqueBloque;
+                estado = EstadoBola.choqueBloque;
             }
             else if (detectar_colision_techo(ball))
             {
-                estado = TipoEstado.techo;
+                estado = EstadoBola.techo;
             }
             else
             {
-                estado = TipoEstado.nada;
+                estado = EstadoBola.nada;
             }
             return estado;
         }
@@ -53,8 +49,6 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
             if (Canvas.GetTop(ball) < 0)
             {
                 return true;
-
-               
             }
             else
             {
@@ -99,31 +93,27 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
         public bool detectar_colision_bloque(Rectangle ball, Rectangle[] bloques)
         {
             Rect bola = new Rect(Canvas.GetLeft(ball), Canvas.GetTop(ball), ball.Width, ball.Height);
+            List<Rectangle> listaBloques = bloques.ToList();
+            List<Rect> colision_bloques = new List<Rect>();
 
-            for (int i = 0; i < bloques.Length; i++)
+            listaBloques.ForEach(bloque =>
             {
-                Rect bloque = new Rect();
-                if (bloques[i] != null)
-                {
-                    bloque = new Rect(Canvas.GetLeft(bloques[i]), Canvas.GetTop(bloques[i]), bloques[i].Width, bloques[i].Height);
-                }
+                colision_bloques.Add(new Rect(Canvas.GetLeft(bloque), Canvas.GetTop(bloque), bloque.Width, bloque.Height));
+            });
 
-                if (bloque.IntersectsWith(bola))
-                {
-                    /*
-                   
-                    CanvasJuego.Children.Remove(rect[i]);
-                    score++;
-                    rect[i] = null;
-                    */
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+            if(colision_bloques.Any( rect => rect.IntersectsWith(bola))){
+                /*
+
+                   CanvasJuego.Children.Remove(rect[i]);
+                   score++;
+                   rect[i] = null;
+                   */
+                return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
     }
