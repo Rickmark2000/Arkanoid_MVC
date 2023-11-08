@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace ArkanoidProyecto.Modelo.Enumeracion
 {
-    public enum TipoFigura { Bloque, Bola, Plataforma }
+    public enum TipoFigura { Rectangulo }
 }

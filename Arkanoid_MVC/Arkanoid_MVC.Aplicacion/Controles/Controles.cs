@@ -13,20 +13,14 @@ namespace ArkanoidProyecto.Controladores.Controles
 {
     public class Controles
     {
-        private Plataforma plataforma;
-        private Bola bola;
         private bool goLeft, goRight;
+        private float velocidad;
 
-        public Controles(Plataforma plataforma, Bola bola)
-        {
-            this.bola = bola;
-            this.plataforma = plataforma;
-        }
-
-        public Controles(UIElement element)
+        public Controles(UIElement element,float velocidad)
         {
             element.AddHandler(UIElement.PreviewKeyUpEvent, new KeyEventHandler(PreviewKeyUpHandler));
             element.AddHandler(UIElement.PreviewKeyDownEvent, new KeyEventHandler(PreviewKeyDownHandler));
+            this.velocidad = velocidad;
         }
 
         private void PreviewKeyUpHandler(object sender, KeyEventArgs e)
@@ -54,12 +48,12 @@ namespace ArkanoidProyecto.Controladores.Controles
             double limiteDerecho = CanvasJuego.ActualWidth - o.Width;
             if (!(Canvas.GetLeft(o) < limiteIzquierdo)&& goLeft)
             {
-                posX -= 4;
+                posX -= velocidad;
             }
 
             if (!(Canvas.GetLeft(o) > limiteDerecho) && goRight)
             {
-                posX += 4;
+                posX += velocidad;
             }
 
         }

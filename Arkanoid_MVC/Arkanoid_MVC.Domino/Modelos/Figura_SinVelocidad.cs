@@ -9,6 +9,7 @@ namespace Arkanoid_MVC.Domino.Modelos
 {
     public class Figura_SinVelocidad:Figura
     {
-       
+       public int numGolpes {  get; set; }
+        public int id {  get; set; }
     }
 }

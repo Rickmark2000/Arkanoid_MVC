@@ -15,50 +15,24 @@ namespace ArkanoidProyecto.Controladores
 {
     public class Diseño
     {
-
-        private Ibolas_management bolas_management;
-        private Iplataformas_management plataformas_management;
-        private Ibloques_management bloques_management;
-        private int num_bloques = 0;
-        private Figura bola, plataforma, bloque;
+        private Ifiguras_management<Rectangle> bloques_management;
+        private int num_bloques;
+        private Shape bola, plataforma, bloque;
 
 
         public Diseño(int num_bloques)
         {
             this.num_bloques = num_bloques;
         }
-
-        private void crear_management(Figura figura)
-        {
-            switch (figura.tipoFigura)
-            {
-                case TipoFigura.Bloque:
-                    bloques_management = new Management();
-                    break;
-                case TipoFigura.Plataforma:
-                    plataformas_management = new Plataformas_Management((Plataforma)figura);
-                    break;
-                case TipoFigura.Bola:
-                    bolas_management = new Bolas_Management((Bola)figura);
-                    break;
-            }
-        }
+       
 
         public void crear_piezas()
         {
-            bloque = Figuras_factory.crear_figura(TipoFigura.Bloque);
-            bola = Figuras_factory.crear_figura(TipoFigura.Bola);
-            plataforma = Figuras_factory.crear_figura(TipoFigura.Plataforma);
-            crear_management(bloque);
-            crear_management(bola);
-            crear_management(plataforma);
+            bloque = Figuras_factory.crear_figura(TipoFigura.Rectangulo);
+            bola = Figuras_factory.crear_figura(TipoFigura.Rectangulo);
+            plataforma = Figuras_factory.crear_figura(TipoFigura.Rectangulo);
 
 
-            bloques_management.anadir_valores(12,43);
-
-
-            bloques_management.destruir(5);
-            bloques_management.mostrar_datos();
 
         }
     }

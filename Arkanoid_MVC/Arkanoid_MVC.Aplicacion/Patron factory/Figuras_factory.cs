@@ -8,31 +8,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
 
 namespace ArkanoidProyecto.Controladores.Patron_factory
 {
-    public abstract class Figuras_factory : Ifiguras_Factory<Figura>
+    public abstract class Figuras_factory : Ifiguras_Factory<Shape>
     {
-        public static Figura crear_figura(TipoFigura tipo)
+        public static Shape crear_figura(TipoFigura tipo)
         {
-            Figura figura = null;
+            Shape figura = null;
             switch (tipo)
             {
-                case TipoFigura.Bloque:
-                    figura = new Bloques_Factory().crear();
-                    break;
-                case TipoFigura.Plataforma:
-                    figura = new Plataformas_Factory().crear();
-                    break;
-                case TipoFigura.Bola:
-                    figura = new Bolas_Factory().crear();
+                case TipoFigura.Rectangulo:
+                    figura = new Rectangle_factory().crear();
                     break;
             }
 
             return figura;
         }
-        public abstract Figura crear(int tamano);
-        public abstract Figura crear();
+        public abstract Shape crear();
 
     }
 }

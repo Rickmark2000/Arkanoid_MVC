@@ -48,7 +48,7 @@ namespace Arkanoid_MVC
         public MainWindow()
         {
             InitializeComponent();
-            controles = new Controles(ventana);
+            controles = new Controles(ventana,6);
             diseño = new Diseño(8);
             comprobar = new Comprobar_colisiones();
             helperColision = new ColisionHelper();

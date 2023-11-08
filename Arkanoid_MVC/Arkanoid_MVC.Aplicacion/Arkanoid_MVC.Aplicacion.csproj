@@ -191,15 +191,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Diseño.cs" />
-    <Compile Include="ColisionHelper.cs" />
-    <Compile Include="Managements\Management.cs" />
-    <Compile Include="Managements\Bolas_Management.cs" />
-    <Compile Include="Managements\Plataformas_Management.cs" />
+    <Compile Include="Colisiones\ColisionHelper.cs" />
+    <Compile Include="Management\BloquesManagement.cs" />
     <Compile Include="Partida.cs" />
-    <Compile Include="Patron factory\Bloques_Factory.cs" />
-    <Compile Include="Patron factory\Bolas_Factory.cs" />
     <Compile Include="Patron factory\Figuras_factory.cs" />
-    <Compile Include="Patron factory\Plataformas_Factory.cs" />
+    <Compile Include="Patron factory\Rectangle_factory.cs" />
     <Compile Include="Patron observer\Comprobar_colisiones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
