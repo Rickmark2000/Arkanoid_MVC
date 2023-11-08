@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArkanoidProyecto.Modelo.Enumeracion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,6 @@ namespace ArkanoidProyecto.Modelo.Interfaces
 {
     public interface IObservador_colision<T>
     {
-       string estado(T entity, Canvas element,T entity2,Rectangle[] rect);
+       TipoEstado estado(T entity, Canvas element,T entity2,Rectangle[] rect);
     }
 }

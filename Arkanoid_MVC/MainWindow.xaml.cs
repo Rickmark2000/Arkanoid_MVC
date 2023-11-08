@@ -22,6 +22,8 @@ using System.Windows.Threading;
 using Microsoft.Data.SqlClient;
 using ArkanoidProyecto.Controladores.Controles;
 using ArkanoidProyecto.Controladores.Patron_observer;
+using ArkanoidProyecto.Modelo.Enumeracion;
+using Arkanoid_MVC.Aplicacion;
 
 namespace Arkanoid_MVC
 {
@@ -32,17 +34,18 @@ namespace Arkanoid_MVC
         bool goRight;
         bool isGameOver;
         private DispatcherTimer timer;
-        private double posicionX, posicionY;
+        private double posBolaInicialX, posBolaInicialY;
         double altoPantalla;
-        double anchoPantalla, velocidadX = 2, velocidadY = 2;
+        double anchoPantalla, actualBolaX = 2, actualBolaY = 2;
         private
-            double posX = 0;
+            double plataformaPosX = 0;
         int score;
         Rectangle[] rect = new Rectangle[8];
         Controles controles;
         Diseño diseño;
         Comprobar_colisiones comprobar;
-        string estado;
+        ColisionHelper helperColision;
+        TipoEstado estado;
 
         Random random = new Random();
         public MainWindow()
@@ -51,6 +54,7 @@ namespace Arkanoid_MVC
             controles = new Controles(ventana);
             diseño = new Diseño(8);
             comprobar = new Comprobar_colisiones();
+            helperColision = new ColisionHelper();
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
             Jugador_repositorio jugador_Repositorio = new Jugador_repositorio(connectionString);
 
@@ -68,16 +72,14 @@ namespace Arkanoid_MVC
             anchoPantalla = SystemParameters.PrimaryScreenWidth;
             altoPantalla = SystemParameters.PrimaryScreenHeight;
 
-            posicionY = Canvas.GetTop(ball);
-            posicionX = Canvas.GetLeft(ball);
+            posBolaInicialY = Canvas.GetTop(ball);
+            posBolaInicialX = Canvas.GetLeft(ball);
 
 
             CanvasJuego.Width = anchoPantalla;
             CanvasJuego.Height = altoPantalla;
 
-            posicionX = Canvas.GetTop(ball);
-
-            posX = Canvas.GetLeft(plataforma);
+            plataformaPosX = Canvas.GetLeft(plataforma);
 
             for (int i = 0; i < rect.Length; i++)
             {
@@ -104,23 +106,25 @@ namespace Arkanoid_MVC
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            label.Content = goLeft;
-            Canvas.SetTop(ball, this.posicionY += velocidadY);
-            Canvas.SetLeft(ball, this.posicionX += velocidadX);
-            Canvas.SetLeft(plataforma, anchoPantalla / 2 - plataforma.Width / 2);
-            Canvas.SetLeft(plataforma, posX);
-            double posicionX = Canvas.GetLeft(plataforma);
-            double posicionPlataforma = Canvas.GetLeft(plataforma);
+
+
+            Canvas.SetTop(ball, posBolaInicialY += actualBolaY);
+            Canvas.SetLeft(ball, posBolaInicialX += actualBolaX);
+
+            Canvas.SetLeft(plataforma, plataformaPosX);
             Canvas.GetTop(plataforma);
 
-            estado =comprobar.estado(ball,CanvasJuego,plataforma,rect);
-            controles.mover(plataforma, ref posX, CanvasJuego);
 
+            isGameOver = estado ==TipoEstado.fuera ? true : false;
+
+            estado = comprobar.estado(ball,CanvasJuego,plataforma,rect);
+            helperColision.ColisionBola(estado,ref actualBolaX,ref actualBolaY);
+
+            if (!isGameOver)
+            {
+                controles.mover(plataforma, ref plataformaPosX, CanvasJuego);
+            }
            
-
-            
-
-
        
         }
 

@@ -13,35 +13,36 @@ using System.Windows.Shapes;
 
 namespace ArkanoidProyecto.Controladores.Patron_observer
 {
-    public class Comprobar_colisiones:IObservador_colision<Rectangle>
+    public class Comprobar_colisiones : IObservador_colision<Rectangle>
     {
 
-        public string estado(Rectangle entity,Canvas element,Rectangle plataforma, Rectangle[] rect)
+        public TipoEstado estado(Rectangle ball, Canvas element, Rectangle plataforma, Rectangle[] bloques)
         {
-            string estado = "";
+            TipoEstado estado = TipoEstado.nada;
 
-            if (detectar_colision_muro(entity,element))
+            if (detectar_colision_muro(ball, element))
             {
-                estado = TipoEstado.pared.ToString();
+                estado = TipoEstado.pared;
             }
-            else if(detectar_colision_plataforma(entity,plataforma))
+            else if (detectar_colision_plataforma(ball, plataforma))
             {
-                estado = TipoEstado.EnPlataforma.ToString();
+                estado = TipoEstado.EnPlataforma;
             }
-            else if (detectar_fuera_limite(entity,element))
+            else if (detectar_fuera_limite(ball, element))
             {
-                estado = TipoEstado.fuera.ToString();
-            }else if (detectar_colision_bloque(entity,rect))
-            {
-                estado = TipoEstado.choqueBloque.ToString();
+                estado = TipoEstado.fuera;
             }
-            else if (detectar_colision_techo(entity))
+            else if (detectar_colision_bloque(ball, bloques))
             {
-                estado = TipoEstado.techo.ToString();
+                estado = TipoEstado.choqueBloque;
+            }
+            else if (detectar_colision_techo(ball))
+            {
+                estado = TipoEstado.techo;
             }
             else
             {
-                estado = "";
+                estado = TipoEstado.nada;
             }
             return estado;
         }
@@ -53,7 +54,7 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
             {
                 return true;
 
-                // velocidadY *= -1;
+               
             }
             else
             {
@@ -61,41 +62,27 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
             }
         }
 
-        public bool detectar_colision_muro(Rectangle ball,Canvas CanvasJuego)
+        public bool detectar_colision_muro(Rectangle ball, Canvas CanvasJuego)
         {
             if (Canvas.GetLeft(ball) + ball.Width > CanvasJuego.Width || Canvas.GetLeft(ball) < 0)
             {
-
-                //velocidadX *= -1;
                 return true;
 
             }
             else { return false; }
         }
 
-        public bool detectar_colision_plataforma( Rectangle ball,Rectangle plataforma)
+        public bool detectar_colision_plataforma(Rectangle ball, Rectangle plataforma)
         {
 
             Rect sd = new Rect(Canvas.GetLeft(plataforma), Canvas.GetTop(plataforma), plataforma.Width, plataforma.Height);
             Rect SD2 = new Rect(Canvas.GetLeft(ball), Canvas.GetTop(ball), ball.Width, ball.Height);
+            bool colisiona = sd.IntersectsWith(SD2) == true ? true : false;
+            return colisiona;
 
-
-
-            if (sd.IntersectsWith(SD2))
-            {
-                double ballCenterX = Canvas.GetLeft(ball) + ball.Width / 2;
-                double platformCenterX = Canvas.GetLeft(plataforma) + plataforma.Width / 2;
-               // velocidadY *= -1;
-                return true;
-
-            }
-            else
-            {
-                return false;
-            }
         }
 
-        public bool detectar_fuera_limite(Rectangle ball,Canvas element)
+        public bool detectar_fuera_limite(Rectangle ball, Canvas element)
         {
             if (Canvas.GetTop(ball) + ball.Height >= (Math.Abs(element.Height - ball.Height)))
             {
@@ -109,22 +96,22 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
             }
         }
 
-        public bool detectar_colision_bloque( Rectangle ball, Rectangle[] rect)
+        public bool detectar_colision_bloque(Rectangle ball, Rectangle[] bloques)
         {
-            Rect SD2 = new Rect(Canvas.GetLeft(ball), Canvas.GetTop(ball), ball.Width, ball.Height);
+            Rect bola = new Rect(Canvas.GetLeft(ball), Canvas.GetTop(ball), ball.Width, ball.Height);
 
-            for (int i = 0; i < rect.Length; i++)
+            for (int i = 0; i < bloques.Length; i++)
             {
-                Rect eas = new Rect();
-                if (rect[i] != null)
+                Rect bloque = new Rect();
+                if (bloques[i] != null)
                 {
-                    eas = new Rect(Canvas.GetLeft(rect[i]), Canvas.GetTop(rect[i]), rect[i].Width, rect[i].Height);
+                    bloque = new Rect(Canvas.GetLeft(bloques[i]), Canvas.GetTop(bloques[i]), bloques[i].Width, bloques[i].Height);
                 }
 
-                if (eas.IntersectsWith(SD2))
+                if (bloque.IntersectsWith(bola))
                 {
                     /*
-                    velocidadY *= -1;
+                   
                     CanvasJuego.Children.Remove(rect[i]);
                     score++;
                     rect[i] = null;

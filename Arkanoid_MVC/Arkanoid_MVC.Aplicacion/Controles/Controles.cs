@@ -50,38 +50,17 @@ namespace ArkanoidProyecto.Controladores.Controles
         public void mover(Rectangle o, ref double posX, Canvas CanvasJuego)
         {
 
-            double limiteIzquierdo = 0, limiteDerecho = 0;
-            bool eslimiteDerecho = false, eslimiteIzquierdo = false;
-            limiteDerecho = CanvasJuego.ActualWidth - o.Width;
-            if (Canvas.GetLeft(o) < limiteIzquierdo)
+            double limiteIzquierdo = 0;
+            double limiteDerecho = CanvasJuego.ActualWidth - o.Width;
+            if (!(Canvas.GetLeft(o) < limiteIzquierdo)&& goLeft)
             {
-                eslimiteIzquierdo = true;
-            }
-            else
-            {
-                eslimiteIzquierdo = false;
-            }
-
-            if (Canvas.GetLeft(o) > limiteDerecho)
-            {
-                eslimiteDerecho = true;
-            }
-            else
-            {
-                eslimiteDerecho = false;
-            }
-
-
-            if (goLeft && !eslimiteIzquierdo)
-            {
-
                 posX -= 4;
             }
-            if (goRight && !eslimiteDerecho)
+
+            if (!(Canvas.GetLeft(o) > limiteDerecho) && goRight)
             {
                 posX += 4;
             }
-
 
         }
 

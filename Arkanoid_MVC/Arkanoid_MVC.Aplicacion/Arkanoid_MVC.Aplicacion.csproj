@@ -191,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Diseño.cs" />
+    <Compile Include="ColisionHelper.cs" />
     <Compile Include="Managements\Bloques_Management.cs" />
     <Compile Include="Managements\Bolas_Management.cs" />
     <Compile Include="Managements\Plataformas_Management.cs" />
