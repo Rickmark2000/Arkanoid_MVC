@@ -10,7 +10,7 @@ namespace Arkanoid_MVC.Aplicacion
 {
     public class ColisionHelper
     {
-        public void ColisionBola(EstadoBola tipo,ref double posX,ref double posY)
+        public void ColisionBola(Enum tipo,ref double posX,ref double posY)
         {
             switch (tipo)
             {

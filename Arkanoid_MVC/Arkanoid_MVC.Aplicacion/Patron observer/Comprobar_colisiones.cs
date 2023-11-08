@@ -12,7 +12,7 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
     public class Comprobar_colisiones : IObservador_colision<Rectangle>
     {
 
-        public EstadoBola estado(Rectangle ball, Canvas element, Rectangle plataforma, Rectangle[] bloques)
+        public Enum estado(Rectangle ball, Canvas element, Rectangle plataforma, Rectangle[] bloques)
         {
             EstadoBola estado = EstadoBola.nada;
 

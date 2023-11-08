@@ -8,9 +8,11 @@ namespace ArkanoidProyecto.Modelo.Clases_Atómicas
 {
     public class Datos_bancarios
     {
-        public int id {  get; set; }
-        public int IdUsuario {  get; set; }
-        public DateTime f_caducidad {  get; set; }
-        public string numero_tarjeta {  get; set; }
+        public int Id { get; set; }
+        public int id_Usuario { get; set; }
+        public DateTime f_caducidad { get; set; }
+        public string numeroTarjeta { get; set; }
+
+        public string entidad { get; set; }
     }
 }

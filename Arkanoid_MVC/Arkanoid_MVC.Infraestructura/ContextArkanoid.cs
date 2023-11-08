@@ -14,6 +14,9 @@ namespace ArkanoidProyecto.Modelo.Patron_repositorio
     {
         private string _context;
         public DbSet<Jugadores> jugadores { get; set; }
+        public DbSet<Puntuacion> puntuaciones {  get; set; }
+
+
         public ContextArkanoid(string context)
         {
             this._context = context;

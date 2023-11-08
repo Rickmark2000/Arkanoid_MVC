@@ -9,7 +9,7 @@ namespace ArkanoidProyecto.Modelo.Clases_Atómicas
     public class Password
     {
         public int id { get; set; }
-        public int IdUsuario { get; set; }
-        public string pass { get; set; }
+        public int id_Usuario { get; set; }
+        public string password { get; set; }
     }
 }

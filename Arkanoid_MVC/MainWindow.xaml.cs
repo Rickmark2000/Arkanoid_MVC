@@ -42,7 +42,7 @@ namespace Arkanoid_MVC
         Diseño diseño;
         Comprobar_colisiones comprobar;
         ColisionHelper helperColision;
-        EstadoBola estado;
+        Enum estado;
 
         Random random = new Random();
         public MainWindow()
@@ -111,9 +111,10 @@ namespace Arkanoid_MVC
             Canvas.GetTop(plataforma);
 
 
-            isGameOver = estado ==EstadoBola.fuera ? true : false;
+            
 
             estado = comprobar.estado(ball,CanvasJuego,plataforma,rect);
+            isGameOver = estado.ToString() == EstadoBola.fuera.ToString() ? true : false;
             helperColision.ColisionBola(estado,ref actualBolaX,ref actualBolaY);
 
             if (!isGameOver)

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using ArkanoidProyecto.Modelo.Interfaces.Managements;
 using ArkanoidProyecto.Controladores.Patron_factory;
 using ArkanoidProyecto.Modelo.Interfaces;
+using System.Windows.Shapes;
 
 namespace ArkanoidProyecto.Controladores
 {
@@ -32,7 +33,7 @@ namespace ArkanoidProyecto.Controladores
             switch (figura.tipoFigura)
             {
                 case TipoFigura.Bloque:
-                    bloques_management = new Bloques_Management((Bloque)figura, num_bloques);
+                    bloques_management = new Management();
                     break;
                 case TipoFigura.Plataforma:
                     plataformas_management = new Plataformas_Management((Plataforma)figura);

@@ -203,6 +203,7 @@
     <Compile Include="Modelos\Bola.cs" />
     <Compile Include="Modelos\Datos_bancarios.cs" />
     <Compile Include="Modelos\Figura.cs" />
+    <Compile Include="Modelos\Figura_SinVelocidad.cs" />
     <Compile Include="Modelos\Figura_Velocidad.cs" />
     <Compile Include="Modelos\Jugador.cs" />
     <Compile Include="Modelos\Jugadores.cs" />

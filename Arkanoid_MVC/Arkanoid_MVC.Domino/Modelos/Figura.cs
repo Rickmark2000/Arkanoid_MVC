@@ -12,8 +12,6 @@ namespace ArkanoidProyecto.Modelo
         public float tamano { get; set; }
         public float posicionX { get; set; }
         public float posicionY { get; set; }
-        public float direccionX { get; set; }
-        public float direccionY { get; set; }
         public TipoFigura tipoFigura { get; set; }
 
         public Figura(float tamano)

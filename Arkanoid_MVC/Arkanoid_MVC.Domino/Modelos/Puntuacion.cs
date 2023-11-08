@@ -10,9 +10,9 @@ namespace ArkanoidProyecto.Modelo
     {
         public int id {  get; set; }
 
-        public int Idjugador {  get; set; }
-        public int puntos { get; set; }
-        public int record { get; set; }
+        public int idjugador {  get; set; }
+        public int puntuacion { get; set; }
+        public int puntuacion_record { get; set; }
 
         public Puntuacion()
         {
@@ -21,7 +21,7 @@ namespace ArkanoidProyecto.Modelo
 
         public override string ToString()
         {
-            return $"puntos:{puntos}, record:{record}";
+            return $"puntos:{puntuacion}, record:{puntuacion_record}";
         }
     }
 }

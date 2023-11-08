@@ -12,6 +12,6 @@ namespace ArkanoidProyecto.Modelo.Interfaces
 {
     public interface IObservador_colision<T>
     {
-       EstadoBola estado(T entity, Canvas element,T entity2,Rectangle[] rect);
+       Enum estado(T entity, Canvas element,T entity2,Rectangle[] rect);
     }
 }
