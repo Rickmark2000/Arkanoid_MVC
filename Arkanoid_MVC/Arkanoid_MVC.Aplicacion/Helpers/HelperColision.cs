@@ -8,7 +8,7 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Aplicacion
 {
-    public class ColisionHelper
+    public class HelperColision
     {
         public void ColisionBola(Enum tipo,ref double posX,ref double posY)
         {

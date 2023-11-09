@@ -24,6 +24,9 @@ using ArkanoidProyecto.Controladores.Controles;
 using ArkanoidProyecto.Controladores.Patron_observer;
 using ArkanoidProyecto.Modelo.Enumeracion;
 using Arkanoid_MVC.Aplicacion;
+using Arkanoid_MVC.Domino.Interfaces;
+using Arkanoid_MVC.Aplicacion.Diseño;
+using ArkanoidProyecto.Modelo;
 
 namespace Arkanoid_MVC
 {
@@ -37,21 +40,25 @@ namespace Arkanoid_MVC
         double anchoPantalla, actualBolaX = 2, actualBolaY = 2;
         private double plataformaPosX = 0;
         int score = 0;
+
         Rectangle[] rect = new Rectangle[8];
-        Controles controles;
-        Diseño diseño;
-        Comprobar_colisiones comprobar;
-        ColisionHelper helperColision;
-        Enum estado;
+
+        private IDisenoFigura plataformaDiseño, bolaDiseño, bloqueDiseño;
+
+        private Controles controles;
+  
+        private Comprobar_colisiones comprobar;
+        private HelperColision helperColision;
+
+        private Enum estado;
 
         Random random = new Random();
         public MainWindow()
         {
             InitializeComponent();
             controles = new Controles(ventana,6);
-            diseño = new Diseño(8);
             comprobar = new Comprobar_colisiones();
-            helperColision = new ColisionHelper();
+            helperColision = new HelperColision();
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
             Jugador_repositorio jugador_Repositorio = new Jugador_repositorio(connectionString);
 
@@ -70,8 +77,6 @@ namespace Arkanoid_MVC
 
             posBolaInicialY = Canvas.GetTop(ball);
             posBolaInicialX = Canvas.GetLeft(ball);
-
-
             CanvasJuego.Width = anchoPantalla;
             CanvasJuego.Height = altoPantalla;
 

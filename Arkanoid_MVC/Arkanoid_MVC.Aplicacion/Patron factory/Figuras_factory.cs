@@ -23,7 +23,7 @@ namespace ArkanoidProyecto.Controladores.Patron_factory
                     figura = new Rectangle_factory().crear();
                     break;
             }
-
+            
             return figura;
         }
         public abstract Shape crear();

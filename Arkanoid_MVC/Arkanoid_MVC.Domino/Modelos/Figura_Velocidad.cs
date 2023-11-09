@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ArkanoidProyecto.Modelo
 {
-    public abstract class Figura_Velocidad : Figura
+    public class Figura_Velocidad : Figura
     {
         public int velocidad { get; set; }
         public Figura_Velocidad(float tamano) : base(tamano)

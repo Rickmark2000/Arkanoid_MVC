@@ -191,8 +191,10 @@
     <Compile Include="Enum\TipoFigura.cs" />
     <Compile Include="Interfaces\Factory\Ifiguras_Factory.cs" />
     <Compile Include="Interfaces\Icomprobar_repetido.cs" />
+    <Compile Include="Interfaces\IDisenoFigura.cs" />
+    <Compile Include="Interfaces\Listas\IDictionaryFigura.cs" />
     <Compile Include="Interfaces\Iinformacion.cs" />
-    <Compile Include="Interfaces\Ilista_figura.cs" />
+    <Compile Include="Interfaces\Listas\Ilista_figura.cs" />
     <Compile Include="Interfaces\IObservador_colision.cs" />
     <Compile Include="Interfaces\Management\Ifiguras_management.cs" />
     <Compile Include="Interfaces\Repositorios\IRepositorio.cs" />
