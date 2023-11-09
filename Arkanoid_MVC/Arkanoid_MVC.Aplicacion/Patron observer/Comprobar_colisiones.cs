@@ -27,11 +27,11 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
             else if (detectar_fuera_limite(ball, element))
             {
                 estado = EstadoBola.fuera;
-            }
+            }/*
             else if (detectar_colision_bloque(ball, bloques))
             {
                 estado = EstadoBola.choqueBloque;
-            }
+            }*/
             else if (detectar_colision_techo(ball))
             {
                 estado = EstadoBola.techo;
@@ -90,6 +90,7 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
             }
         }
 
+        /*
         public bool detectar_colision_bloque(Rectangle ball, Rectangle[] bloques)
         {
             Rect bola = new Rect(Canvas.GetLeft(ball), Canvas.GetTop(ball), ball.Width, ball.Height);
@@ -98,16 +99,16 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
 
             listaBloques.ForEach(bloque =>
             {
-               // colision_bloques.Add(new Rect(Canvas.GetLeft(bloque), Canvas.GetTop(bloque), bloque.Width, bloque.Height));
+               colision_bloques.Add(new Rect(Canvas.GetLeft(bloque), Canvas.GetTop(bloque), bloque.Width, bloque.Height));
             });
 
             if(colision_bloques.Any( rect => rect.IntersectsWith(bola))){
-                /*
+                
 
                    CanvasJuego.Children.Remove(rect[i]);
                    score++;
                    rect[i] = null;
-                   */
+                   
                 return true;
             }
             else
@@ -115,6 +116,7 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
                 return false;
             }
         }
+        */
 
     }
 }

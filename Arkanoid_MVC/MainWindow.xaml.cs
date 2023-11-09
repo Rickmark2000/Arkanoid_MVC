@@ -46,8 +46,10 @@ namespace Arkanoid_MVC
         private double plataformaPosX = 0;
         int score = 0;
 
+        private Juego juego = new Juego();
+
         Rectangle[] bloques;
-        Rectangle plataforma;
+        Rectangle plataforma_jugador;
         Ellipse bola;
 
         private IDisenoFigura plataformaDiseño, bolaDiseño, bloqueDiseño;
@@ -85,9 +87,10 @@ namespace Arkanoid_MVC
             plataformaPosX = Canvas.GetLeft(plataformalista);
 
 
-            colocar_bloques(12);
-            colocar_bola();
-       
+
+           bola = juego.colocar_bola(Width, Height, CanvasJuego);
+           bloquesManagement = juego.colocar_bloques(9, CanvasJuego, Width);
+           plataforma_jugador = juego.colocar_plataforma(Width, Height, CanvasJuego);
 
 
             timer = new DispatcherTimer();
@@ -108,24 +111,22 @@ namespace Arkanoid_MVC
         private void Timer_Tick(object sender, EventArgs e)
         {
 
+            if (!isGameOver)
+            {
+                Canvas.SetLeft(plataforma_jugador, plataformaPosX);
+                Canvas.GetTop(plataforma_jugador);
+                controles.mover(plataforma_jugador, ref plataformaPosX, CanvasJuego);
+            }
+
 
             Canvas.SetTop(ball, posBolaInicialY += actualBolaY);
             Canvas.SetLeft(ball, posBolaInicialX += actualBolaX);
+            estado = comprobar.estado(ball, CanvasJuego, plataforma_jugador, bloques);
+            helperColision.ColisionBola(estado, ref actualBolaX, ref actualBolaY);
 
-            Canvas.SetLeft(plataformalista, plataformaPosX);
-            Canvas.GetTop(plataformalista);
 
-
-            
-
-            estado = comprobar.estado(ball,CanvasJuego,plataformalista,bloques);
             isGameOver = estado.ToString() == EstadoBola.fuera.ToString() ? true : false;
-            helperColision.ColisionBola(estado,ref actualBolaX,ref actualBolaY);
-
-            if (!isGameOver)
-            {
-                controles.mover(plataformalista, ref plataformaPosX, CanvasJuego);
-            }
+                    
            
        
         }
@@ -137,50 +138,8 @@ namespace Arkanoid_MVC
 
         }
 
-        public void colocar_bola()
-        {
-            Figura_Velocidad bola = new Figura_Velocidad(TipoFigura.Elipse);
-            bola.ancho = 50;
-            bola.alto = 50;
-            bola.posicionX = Width / 2;
-            bola.posicionY = Height / 2;
-            bolaDiseño = new DisenoElipse(bola);
-            this.bola = (Ellipse)bolaDiseño.Implementar(ref CanvasJuego, Colors.Red, Colors.Black, 2);
-        }
-
-        public void colocar_bloques(int num_bloques)
-        {
-            bloques = new Rectangle[num_bloques];
-            bloquesManagement = new BloquesManagement();
-            Figura_SinVelocidad bloqueFigura = new Figura_SinVelocidad(TipoFigura.Rectangulo);
-            bloqueFigura.ancho = 110;
-            bloqueFigura.alto = 30;
-            bloqueFigura.posicionX = 26;
-            bloqueFigura.posicionY = 44;
-
-            int separacionX = 11;
-            int separacionY = 11;
-            double tamano_total = 0;
-
-            for (int i = 0; i < bloques.Length; i++)
-            {
-                if (tamano_total + bloqueFigura.ancho > Width)
-                {
-                    tamano_total = 0;
-                    bloqueFigura.posicionX = 26;
-                    bloqueFigura.posicionY += bloqueFigura.alto + separacionY;
-
-                }
-
-                bloqueDiseño = new DisenoRectangulo(bloqueFigura);
-                bloques[i] = (Rectangle)bloqueDiseño.Implementar(ref CanvasJuego, Colors.Aqua, Colors.Black, 2);
-                bloquesManagement.anadir(bloques[i]);
-
-                tamano_total += bloqueFigura.ancho + separacionX;
-                bloqueFigura.posicionX += separacionX + bloqueFigura.ancho;
+       
 
 
-            }
-        }
     }
 }
