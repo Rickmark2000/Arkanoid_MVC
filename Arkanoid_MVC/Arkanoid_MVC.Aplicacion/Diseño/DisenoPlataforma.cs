@@ -11,18 +11,15 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Aplicacion.Diseño
 {
-    public class BloqueDiseno : Diseno
+    public class DisenoPlataforma : Diseno
     {
-        private int numBlques;
-
-        public BloqueDiseno(Figura figura, int numBloques) : base(figura)
+        public DisenoPlataforma(Figura figura) : base(figura)
         {
-            this.numBlques = numBloques;
         }
 
         public override Shape Implementar(ref Canvas element)
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 }

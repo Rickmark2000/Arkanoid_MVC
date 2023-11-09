@@ -9,10 +9,10 @@
         Title="MainWindow" Height="500" Width="800"
         SizeChanged="Window_SizeChanged">
     <Grid Name="gridJuego">
-        <Canvas Name="CanvasJuego" Background="AliceBlue" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}" 
-      Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Window}}">
+        <Canvas Name="CanvasJuego" Background="AliceBlue" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=Window}}" 
+      Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Window}}">
             <Label x:Name="txtScore" Content="Puntuacion:0" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.713,0.015" Width="218"/>
-            <Rectangle Name="plataforma" HorizontalAlignment="Center" Height="16" Stroke="Green" VerticalAlignment="Top" Width="132" Canvas.Left="308" Canvas.Top="430">
+            <Rectangle Name="plataformalista" HorizontalAlignment="Center" Height="16" Stroke="Green" VerticalAlignment="Top" Width="132" Canvas.Left="308" Canvas.Top="430">
             </Rectangle>
             <!-- Elementos dentro del Canvas -->
             <Rectangle x:Name="ball" HorizontalAlignment="Center" Height="32" Stroke="Green" VerticalAlignment="Top" Width="32" Canvas.Left="358" Canvas.Top="233">

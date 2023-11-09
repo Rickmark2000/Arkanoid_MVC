@@ -10,14 +10,6 @@ namespace ArkanoidProyecto.Modelo
     public class Figura_Velocidad : Figura
     {
         public int velocidad { get; set; }
-        public Figura_Velocidad(float tamano) : base(tamano)
-        {
-        }
-
-        public Figura_Velocidad()
-        {
-
-        }
 
 
 

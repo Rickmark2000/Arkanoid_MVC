@@ -9,14 +9,16 @@ namespace ArkanoidProyecto.Modelo
 {
     public abstract class Figura
     {
-        public float tamano { get; set; }
-        public float posicionX { get; set; }
-        public float posicionY { get; set; }
+        public double ancho { get; set; }
+        public double alto { get; set; }
+        public double tamano { get; set; }
+        public double posicionX { get; set; }
+        public double posicionY { get; set; }
         public TipoFigura tipoFigura { get; set; }
 
-        public Figura(float tamano)
+        public Figura(TipoFigura tipo)
         {
-            this.tamano = tamano;
+            this.tipoFigura = tipo;
         }
 
         public Figura()

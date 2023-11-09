@@ -41,7 +41,8 @@ namespace Arkanoid_MVC
         private double plataformaPosX = 0;
         int score = 0;
 
-        Rectangle[] rect = new Rectangle[8];
+        Rectangle[] bloques = new Rectangle[8];
+        Rectangle bola, plataforma;
 
         private IDisenoFigura plataformaDiseño, bolaDiseño, bloqueDiseño;
 
@@ -70,7 +71,7 @@ namespace Arkanoid_MVC
 
         private void setupGame()
         {
-
+            
 
             anchoPantalla = SystemParameters.PrimaryScreenWidth;
             altoPantalla = SystemParameters.PrimaryScreenHeight;
@@ -80,15 +81,23 @@ namespace Arkanoid_MVC
             CanvasJuego.Width = anchoPantalla;
             CanvasJuego.Height = altoPantalla;
 
-            plataformaPosX = Canvas.GetLeft(plataforma);
+            plataformaPosX = Canvas.GetLeft(plataformalista);
 
-            for (int i = 0; i < rect.Length; i++)
+
+            for (int i = 0; i < bloques.Length; i++)
             {
-                rect[i] = (Rectangle)FindName("bloque" + (i + 1));
-                rect[i].Fill = new SolidColorBrush(Colors.Red);
+                bloques[i] = (Rectangle)FindName("bloque" + (i + 1));
+                bloques[i].Fill = new SolidColorBrush(Colors.Red);
 
             }
-
+            Figura f = new Figura_Velocidad();
+            f.tipoFigura = TipoFigura.Rectangulo;
+            f.ancho = 50;
+            f.alto = 50;
+            f.posicionX = Width/2;
+            f.posicionY = Height/2;
+            bolaDiseño = new DisenoBola(f);
+            bolaDiseño.Implementar(ref CanvasJuego);
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(6);
@@ -112,19 +121,19 @@ namespace Arkanoid_MVC
             Canvas.SetTop(ball, posBolaInicialY += actualBolaY);
             Canvas.SetLeft(ball, posBolaInicialX += actualBolaX);
 
-            Canvas.SetLeft(plataforma, plataformaPosX);
-            Canvas.GetTop(plataforma);
+            Canvas.SetLeft(plataformalista, plataformaPosX);
+            Canvas.GetTop(plataformalista);
 
 
             
 
-            estado = comprobar.estado(ball,CanvasJuego,plataforma,rect);
+            estado = comprobar.estado(ball,CanvasJuego,plataformalista,bloques);
             isGameOver = estado.ToString() == EstadoBola.fuera.ToString() ? true : false;
             helperColision.ColisionBola(estado,ref actualBolaX,ref actualBolaY);
 
             if (!isGameOver)
             {
-                controles.mover(plataforma, ref plataformaPosX, CanvasJuego);
+                controles.mover(plataformalista, ref plataformaPosX, CanvasJuego);
             }
            
        

@@ -1,5 +1,7 @@
 ﻿using ArkanoidProyecto.Controladores;
+using ArkanoidProyecto.Controladores.Patron_factory;
 using ArkanoidProyecto.Modelo;
+using ArkanoidProyecto.Modelo.Enumeracion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +13,19 @@ using System.Windows.Shapes;
 
 namespace Arkanoid_MVC.Aplicacion.Diseño
 {
-    public class PlataformaDiseno : Diseno
+    public class DisenoBloque : Diseno
     {
-        public PlataformaDiseno(Figura figura) : base(figura)
+        private int numBlques;
+
+        public DisenoBloque(Figura figura, int numBloques) : base(figura)
         {
+            this.numBlques = numBloques;
         }
 
         public override Shape Implementar(ref Canvas element)
         {
-            throw new NotImplementedException();
+            Rectangle plataforma = (Rectangle)Figuras_factory.crear_figura(figura.tipoFigura);
+            return null;
         }
     }
 }
