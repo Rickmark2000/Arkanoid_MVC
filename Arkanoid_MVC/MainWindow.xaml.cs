@@ -28,6 +28,10 @@ using Arkanoid_MVC.Domino.Interfaces;
 using Arkanoid_MVC.Aplicacion.Diseño;
 using ArkanoidProyecto.Modelo;
 using ArkanoidProyecto.Controladores.Patron_factory;
+using ArkanoidProyecto.Modelo.Interfaces.Repositorios;
+using Arkanoid_MVC.Domino.Modelos;
+using ArkanoidProyecto.Modelo.Interfaces.Managements;
+using ArkanoidProyecto.Controladores.Managements;
 
 namespace Arkanoid_MVC
 {
@@ -47,6 +51,7 @@ namespace Arkanoid_MVC
         Ellipse bola;
 
         private IDisenoFigura plataformaDiseño, bolaDiseño, bloqueDiseño;
+        private Ifiguras_management<Rectangle> bloquesManagement;
 
         private Controles controles;
   
@@ -63,7 +68,7 @@ namespace Arkanoid_MVC
             comprobar = new Comprobar_colisiones();
             helperColision = new HelperColision();
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-            Jugador_repositorio jugador_Repositorio = new Jugador_repositorio(connectionString);
+            IRepositorio<Jugadores> jugador_Repositorio = new Jugador_repositorio(connectionString);
 
             setupGame();
             
@@ -79,14 +84,10 @@ namespace Arkanoid_MVC
 
             plataformaPosX = Canvas.GetLeft(plataformalista);
 
-            bloques = new Rectangle[8];
 
-            for (int i = 0; i < bloques.Length; i++)
-            {
-                bloques[i] = (Rectangle)FindName("bloque" + (i + 1));
-                bloques[i].Fill = new SolidColorBrush(Colors.Red);
-
-            }
+            colocar_bloques(12);
+            colocar_bola();
+       
 
 
             timer = new DispatcherTimer();
@@ -136,15 +137,50 @@ namespace Arkanoid_MVC
 
         }
 
-        public void crear_pieza()
+        public void colocar_bola()
         {
-            Figura_Velocidad f = new Figura_Velocidad(TipoFigura.Rectangulo);
-            f.ancho = 50;
-            f.alto = 50;
-            f.posicionX = Width / 2;
-            f.posicionY = Height / 2;
-            bolaDiseño = new DisenoElipse(f);
-            bola = (Ellipse)bolaDiseño.Implementar(ref CanvasJuego, Colors.Red, Colors.Black, 2);
+            Figura_Velocidad bola = new Figura_Velocidad(TipoFigura.Elipse);
+            bola.ancho = 50;
+            bola.alto = 50;
+            bola.posicionX = Width / 2;
+            bola.posicionY = Height / 2;
+            bolaDiseño = new DisenoElipse(bola);
+            this.bola = (Ellipse)bolaDiseño.Implementar(ref CanvasJuego, Colors.Red, Colors.Black, 2);
+        }
+
+        public void colocar_bloques(int num_bloques)
+        {
+            bloques = new Rectangle[num_bloques];
+            bloquesManagement = new BloquesManagement();
+            Figura_SinVelocidad bloqueFigura = new Figura_SinVelocidad(TipoFigura.Rectangulo);
+            bloqueFigura.ancho = 110;
+            bloqueFigura.alto = 30;
+            bloqueFigura.posicionX = 26;
+            bloqueFigura.posicionY = 44;
+
+            int separacionX = 11;
+            int separacionY = 11;
+            double tamano_total = 0;
+
+            for (int i = 0; i < bloques.Length; i++)
+            {
+                if (tamano_total + bloqueFigura.ancho > Width)
+                {
+                    tamano_total = 0;
+                    bloqueFigura.posicionX = 26;
+                    bloqueFigura.posicionY += bloqueFigura.alto + separacionY;
+
+                }
+
+                bloqueDiseño = new DisenoRectangulo(bloqueFigura);
+                bloques[i] = (Rectangle)bloqueDiseño.Implementar(ref CanvasJuego, Colors.Aqua, Colors.Black, 2);
+                bloquesManagement.anadir(bloques[i]);
+
+                tamano_total += bloqueFigura.ancho + separacionX;
+                bloqueFigura.posicionX += separacionX + bloqueFigura.ancho;
+
+
+            }
         }
     }
 }

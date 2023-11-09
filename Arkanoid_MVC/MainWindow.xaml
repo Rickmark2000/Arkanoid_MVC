@@ -20,8 +20,8 @@
                     <TranslateTransform X="0" Y="0" />
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle x:Name="bloque1" HorizontalAlignment="Left" Height="27" Stroke="Green" VerticalAlignment="Center" Width="124" Canvas.Left="135" Canvas.Top="41"/>
-            <Rectangle x:Name="bloque2" HorizontalAlignment="Left" Height="27" Stroke="Green" VerticalAlignment="Top" Width="124" Canvas.Left="276" Canvas.Top="41"/>
+            <Rectangle x:Name="bloque1" HorizontalAlignment="Left" Height="24" Stroke="Green" VerticalAlignment="Top" Width="104" Canvas.Left="26" Canvas.Top="44"/>
+            <Rectangle x:Name="bloque2" HorizontalAlignment="Left" Height="26" Stroke="Green" VerticalAlignment="Center" Width="124" Canvas.Left="250" Canvas.Top="42"/>
             <Rectangle x:Name="bloque3" HorizontalAlignment="Left" Height="27" Stroke="Green" VerticalAlignment="Top" Width="124" Canvas.Left="425" Canvas.Top="41"/>
             <Rectangle x:Name="bloque4" HorizontalAlignment="Left" Height="27" Stroke="Green" VerticalAlignment="Top" Width="124" Canvas.Left="578" Canvas.Top="41"/>
             <Rectangle x:Name="bloque5" HorizontalAlignment="Left" Height="27" Stroke="Green" VerticalAlignment="Top" Width="124" Canvas.Left="135" Canvas.Top="90"/>

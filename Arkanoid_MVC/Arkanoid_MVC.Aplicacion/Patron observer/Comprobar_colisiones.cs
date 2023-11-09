@@ -98,7 +98,7 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
 
             listaBloques.ForEach(bloque =>
             {
-                colision_bloques.Add(new Rect(Canvas.GetLeft(bloque), Canvas.GetTop(bloque), bloque.Width, bloque.Height));
+               // colision_bloques.Add(new Rect(Canvas.GetLeft(bloque), Canvas.GetTop(bloque), bloque.Width, bloque.Height));
             });
 
             if(colision_bloques.Any( rect => rect.IntersectsWith(bola))){
