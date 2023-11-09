@@ -20,10 +20,5 @@ namespace ArkanoidProyecto.Modelo
         {
             this.tipoFigura = tipo;
         }
-
-        public Figura()
-        {
-
-        }
     }
 }

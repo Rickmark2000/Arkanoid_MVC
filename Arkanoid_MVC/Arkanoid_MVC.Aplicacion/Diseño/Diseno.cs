@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using Arkanoid_MVC.Domino.Interfaces;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace ArkanoidProyecto.Controladores
 {
@@ -25,7 +26,7 @@ namespace ArkanoidProyecto.Controladores
             this.figura = figura;
         }
 
-        public abstract Shape Implementar(ref Canvas element);
+        public abstract Shape Implementar(ref Canvas element,Color color_fondo,Color color_borde,int grosor_borde);
     }
 
 }

@@ -190,13 +190,13 @@
     <Compile Include="Controles\Controles.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diseño\DisenoBloque.cs" />
-    <Compile Include="Diseño\DisenoBola.cs" />
+    <Compile Include="Diseño\DisenoRectangulo.cs" />
+    <Compile Include="Diseño\DisenoElipse.cs" />
     <Compile Include="Diseño\Diseno.cs" />
     <Compile Include="Helpers\HelperColision.cs" />
-    <Compile Include="Diseño\DisenoPlataforma.cs" />
     <Compile Include="Management\BloquesManagement.cs" />
     <Compile Include="Partida.cs" />
+    <Compile Include="Patron factory\Elipse_factory.cs" />
     <Compile Include="Patron factory\Figuras_factory.cs" />
     <Compile Include="Patron factory\Rectangle_factory.cs" />
     <Compile Include="Patron observer\Comprobar_colisiones.cs" />

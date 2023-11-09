@@ -22,6 +22,10 @@ namespace ArkanoidProyecto.Controladores.Patron_factory
                 case TipoFigura.Rectangulo:
                     figura = new Rectangle_factory().crear();
                     break;
+                case TipoFigura.Elipse:
+                    figura = new Elipse_factory().crear();
+                    break;
+
             }
             
             return figura;

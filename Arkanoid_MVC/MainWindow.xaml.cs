@@ -27,6 +27,7 @@ using Arkanoid_MVC.Aplicacion;
 using Arkanoid_MVC.Domino.Interfaces;
 using Arkanoid_MVC.Aplicacion.Diseño;
 using ArkanoidProyecto.Modelo;
+using ArkanoidProyecto.Controladores.Patron_factory;
 
 namespace Arkanoid_MVC
 {
@@ -41,8 +42,9 @@ namespace Arkanoid_MVC
         private double plataformaPosX = 0;
         int score = 0;
 
-        Rectangle[] bloques = new Rectangle[8];
-        Rectangle bola, plataforma;
+        Rectangle[] bloques;
+        Rectangle plataforma;
+        Ellipse bola;
 
         private IDisenoFigura plataformaDiseño, bolaDiseño, bloqueDiseño;
 
@@ -71,18 +73,13 @@ namespace Arkanoid_MVC
 
         private void setupGame()
         {
-            
-
-            anchoPantalla = SystemParameters.PrimaryScreenWidth;
-            altoPantalla = SystemParameters.PrimaryScreenHeight;
 
             posBolaInicialY = Canvas.GetTop(ball);
             posBolaInicialX = Canvas.GetLeft(ball);
-            CanvasJuego.Width = anchoPantalla;
-            CanvasJuego.Height = altoPantalla;
 
             plataformaPosX = Canvas.GetLeft(plataformalista);
 
+            bloques = new Rectangle[8];
 
             for (int i = 0; i < bloques.Length; i++)
             {
@@ -90,14 +87,7 @@ namespace Arkanoid_MVC
                 bloques[i].Fill = new SolidColorBrush(Colors.Red);
 
             }
-            Figura f = new Figura_Velocidad();
-            f.tipoFigura = TipoFigura.Rectangulo;
-            f.ancho = 50;
-            f.alto = 50;
-            f.posicionX = Width/2;
-            f.posicionY = Height/2;
-            bolaDiseño = new DisenoBola(f);
-            bolaDiseño.Implementar(ref CanvasJuego);
+
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(6);
@@ -144,6 +134,17 @@ namespace Arkanoid_MVC
             CanvasJuego.Width = e.NewSize.Width;
             CanvasJuego.Height = e.NewSize.Height;
 
+        }
+
+        public void crear_pieza()
+        {
+            Figura_Velocidad f = new Figura_Velocidad(TipoFigura.Rectangulo);
+            f.ancho = 50;
+            f.alto = 50;
+            f.posicionX = Width / 2;
+            f.posicionY = Height / 2;
+            bolaDiseño = new DisenoElipse(f);
+            bola = (Ellipse)bolaDiseño.Implementar(ref CanvasJuego, Colors.Red, Colors.Black, 2);
         }
     }
 }

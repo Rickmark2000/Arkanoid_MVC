@@ -1,4 +1,5 @@
 ﻿using ArkanoidProyecto.Modelo;
+using ArkanoidProyecto.Modelo.Enumeracion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,10 @@ namespace Arkanoid_MVC.Domino.Modelos
 {
     public class Figura_SinVelocidad:Figura
     {
-       public int numGolpes {  get; set; }
+        public Figura_SinVelocidad(TipoFigura tipo) : base(tipo)
+        {
+        }
+
+        public int numGolpes {  get; set; }
     }
 }

@@ -9,6 +9,10 @@ namespace ArkanoidProyecto.Modelo
 {
     public class Figura_Velocidad : Figura
     {
+        public Figura_Velocidad(TipoFigura tipo) : base(tipo)
+        {
+        }
+
         public int velocidad { get; set; }
 
 
