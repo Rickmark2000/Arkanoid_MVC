@@ -32,62 +32,64 @@ using ArkanoidProyecto.Modelo.Interfaces.Repositorios;
 using Arkanoid_MVC.Domino.Modelos;
 using ArkanoidProyecto.Modelo.Interfaces.Managements;
 using ArkanoidProyecto.Controladores.Managements;
+using ArkanoidProyecto.Modelo.Interfaces;
 
 namespace Arkanoid_MVC
 {
-   
+
     public partial class MainWindow : Window
     {
         private bool isGameOver;
         private DispatcherTimer timer;
 
-        private double posBolaInicialX, posBolaInicialY;
+        private double posBolaInicialX, posBolaInicialY, posPlataformaX;
         double actualBolaX = 2, actualBolaY = 2;
-        private double posPlataformaX = 0;
 
         private Juego juego = new Juego();
 
-        private Rectangle[] bloques;
         private Rectangle plataforma_jugador;
         private Ellipse bola;
         private Ifiguras_management<Rectangle> bloquesManagement;
 
+
+        private IObservador_colision<Rectangle, Ellipse> comprobarColisiones = new Obserbar_colisiones();
+        private HelperColision helperColision = new HelperColision();
+
+
+        private IRepositorio<Jugadores> jugador_Repositorio;
+
         private Controles controles;
-  
-        private Comprobar_colisiones comprobarColisiones;
-        private HelperColision helperColision;
 
-        private Enum estado;
 
-        Random random = new Random();
+        private Enum estado_bola;
+
         public MainWindow()
         {
             InitializeComponent();
-            controles = new Controles(ventana,6);
-            comprobarColisiones = new Comprobar_colisiones();
-            helperColision = new HelperColision();
+            controles = new Controles(ventana, 6);
+
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-            IRepositorio<Jugadores> jugador_Repositorio = new Jugador_repositorio(connectionString);
+            jugador_Repositorio = new Jugador_repositorio(connectionString);
 
-            setupGame();
-            
-        }
-
-        private void setupGame()
-        {
-           bola = juego.colocar_bola(Width, Height, CanvasJuego);
-           bloquesManagement = juego.colocar_bloques(9, CanvasJuego, Width);
-           plataforma_jugador = juego.colocar_plataforma(Width, Height, CanvasJuego);
-
-            posBolaInicialY = Canvas.GetTop(bola);
-            posBolaInicialX = Canvas.GetLeft(bola);
-
-            posPlataformaX = Canvas.GetLeft(plataforma_jugador);
+            prepararJuego();
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(6);
             timer.Tick += Timer_Tick;
             timer.Start();
+
+        }
+
+        private void prepararJuego()
+        {
+            bola = juego.colocar_bola(Width, Height, CanvasJuego);
+            plataforma_jugador = juego.colocar_plataforma(Width, Height, CanvasJuego);
+            bloquesManagement = juego.colocar_bloques(9, CanvasJuego, Width);
+
+            posBolaInicialY = Canvas.GetTop(bola);
+            posBolaInicialX = Canvas.GetLeft(bola);
+
+            posPlataformaX = Canvas.GetLeft(plataforma_jugador);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -101,11 +103,12 @@ namespace Arkanoid_MVC
 
                 Canvas.SetTop(bola, posBolaInicialY += actualBolaY);
                 Canvas.SetLeft(bola, posBolaInicialX += actualBolaX);
-                estado = comprobarColisiones.estado(bola, CanvasJuego, plataforma_jugador, bloques);
-                helperColision.ColisionBola(estado, ref actualBolaX, ref actualBolaY);
+                estado_bola = comprobarColisiones.estado(bola, CanvasJuego, plataforma_jugador, bloquesManagement);
+                helperColision.ColisionBola(estado_bola, ref actualBolaX, ref actualBolaY);
 
 
-                isGameOver = estado.ToString() == EstadoBola.fuera.ToString() ? true : false;
+
+                isGameOver = estado_bola.ToString() == EstadoBola.fuera.ToString() ? true : false;
             }
             else
             {
@@ -119,9 +122,6 @@ namespace Arkanoid_MVC
             CanvasJuego.Height = e.NewSize.Height;
 
         }
-
-       
-
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ArkanoidProyecto.Modelo.Enumeracion;
+using ArkanoidProyecto.Modelo.Interfaces.Managements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ using System.Windows.Shapes;
 
 namespace ArkanoidProyecto.Modelo.Interfaces
 {
-    public interface IObservador_colision<T,E>
+    public interface IObservador_colision<R,E>
     {
-       Enum estado(E entity, Canvas element,T entity2,Rectangle[] rect);
+       Enum estado(E entity, Canvas element,R entity2, Ifiguras_management<Rectangle> rect);
     }
 }

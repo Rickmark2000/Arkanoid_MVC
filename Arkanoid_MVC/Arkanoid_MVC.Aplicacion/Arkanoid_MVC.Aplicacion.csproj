@@ -201,7 +201,7 @@
     <Compile Include="Patron factory\Elipse_factory.cs" />
     <Compile Include="Patron factory\Figuras_factory.cs" />
     <Compile Include="Patron factory\Rectangle_factory.cs" />
-    <Compile Include="Patron observer\Comprobar_colisiones.cs" />
+    <Compile Include="Patron observer\Obserbar_colisiones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
