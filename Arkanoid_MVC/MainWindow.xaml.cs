@@ -38,26 +38,23 @@ namespace Arkanoid_MVC
    
     public partial class MainWindow : Window
     {
-        bool isGameOver;
+        private bool isGameOver;
         private DispatcherTimer timer;
+
         private double posBolaInicialX, posBolaInicialY;
-        double altoPantalla;
-        double anchoPantalla, actualBolaX = 2, actualBolaY = 2;
-        private double plataformaPosX = 0;
-        int score = 0;
+        double actualBolaX = 2, actualBolaY = 2;
+        private double posPlataformaX = 0;
 
         private Juego juego = new Juego();
 
-        Rectangle[] bloques;
-        Rectangle plataforma_jugador;
-        Ellipse bola;
-
-        private IDisenoFigura plataformaDiseño, bolaDiseño, bloqueDiseño;
+        private Rectangle[] bloques;
+        private Rectangle plataforma_jugador;
+        private Ellipse bola;
         private Ifiguras_management<Rectangle> bloquesManagement;
 
         private Controles controles;
   
-        private Comprobar_colisiones comprobar;
+        private Comprobar_colisiones comprobarColisiones;
         private HelperColision helperColision;
 
         private Enum estado;
@@ -67,7 +64,7 @@ namespace Arkanoid_MVC
         {
             InitializeComponent();
             controles = new Controles(ventana,6);
-            comprobar = new Comprobar_colisiones();
+            comprobarColisiones = new Comprobar_colisiones();
             helperColision = new HelperColision();
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
             IRepositorio<Jugadores> jugador_Repositorio = new Jugador_repositorio(connectionString);
@@ -76,36 +73,21 @@ namespace Arkanoid_MVC
             
         }
 
-
-
         private void setupGame()
         {
-
-            posBolaInicialY = Canvas.GetTop(ball);
-            posBolaInicialX = Canvas.GetLeft(ball);
-
-            plataformaPosX = Canvas.GetLeft(plataformalista);
-
-
-
            bola = juego.colocar_bola(Width, Height, CanvasJuego);
            bloquesManagement = juego.colocar_bloques(9, CanvasJuego, Width);
            plataforma_jugador = juego.colocar_plataforma(Width, Height, CanvasJuego);
 
+            posBolaInicialY = Canvas.GetTop(bola);
+            posBolaInicialX = Canvas.GetLeft(bola);
+
+            posPlataformaX = Canvas.GetLeft(plataforma_jugador);
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(6);
-            if (!isGameOver)
-            {
-
-                timer.Tick += Timer_Tick;
-
-                timer.Start();
-            }
-            else
-            {
-                timer.Stop();
-            }
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -113,22 +95,22 @@ namespace Arkanoid_MVC
 
             if (!isGameOver)
             {
-                Canvas.SetLeft(plataforma_jugador, plataformaPosX);
-                Canvas.GetTop(plataforma_jugador);
-                controles.mover(plataforma_jugador, ref plataformaPosX, CanvasJuego);
+                Canvas.SetLeft(plataforma_jugador, posPlataformaX);
+                controles.mover(plataforma_jugador, ref posPlataformaX, CanvasJuego);
+
+
+                Canvas.SetTop(bola, posBolaInicialY += actualBolaY);
+                Canvas.SetLeft(bola, posBolaInicialX += actualBolaX);
+                estado = comprobarColisiones.estado(bola, CanvasJuego, plataforma_jugador, bloques);
+                helperColision.ColisionBola(estado, ref actualBolaX, ref actualBolaY);
+
+
+                isGameOver = estado.ToString() == EstadoBola.fuera.ToString() ? true : false;
             }
-
-
-            Canvas.SetTop(ball, posBolaInicialY += actualBolaY);
-            Canvas.SetLeft(ball, posBolaInicialX += actualBolaX);
-            estado = comprobar.estado(ball, CanvasJuego, plataforma_jugador, bloques);
-            helperColision.ColisionBola(estado, ref actualBolaX, ref actualBolaY);
-
-
-            isGameOver = estado.ToString() == EstadoBola.fuera.ToString() ? true : false;
-                    
-           
-       
+            else
+            {
+                timer.Stop();
+            }
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

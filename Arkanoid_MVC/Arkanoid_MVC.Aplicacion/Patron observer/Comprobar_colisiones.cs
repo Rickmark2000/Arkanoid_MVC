@@ -9,10 +9,10 @@ using System.Windows.Shapes;
 
 namespace ArkanoidProyecto.Controladores.Patron_observer
 {
-    public class Comprobar_colisiones : IObservador_colision<Rectangle>
+    public class Comprobar_colisiones : IObservador_colision<Rectangle,Ellipse>
     {
 
-        public Enum estado(Rectangle ball, Canvas element, Rectangle plataforma, Rectangle[] bloques)
+        public Enum estado(Ellipse ball, Canvas element, Rectangle plataforma, Rectangle[] bloques)
         {
             EstadoBola estado = EstadoBola.nada;
 
@@ -43,7 +43,7 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
             return estado;
         }
 
-        private bool detectar_colision_techo(Rectangle ball)
+        private bool detectar_colision_techo(Ellipse ball)
         {
 
             if (Canvas.GetTop(ball) < 0)
@@ -56,7 +56,7 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
             }
         }
 
-        public bool detectar_colision_muro(Rectangle ball, Canvas CanvasJuego)
+        public bool detectar_colision_muro(Ellipse ball, Canvas CanvasJuego)
         {
             if (Canvas.GetLeft(ball) + ball.Width > CanvasJuego.Width || Canvas.GetLeft(ball) < 0)
             {
@@ -66,7 +66,7 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
             else { return false; }
         }
 
-        public bool detectar_colision_plataforma(Rectangle ball, Rectangle plataforma)
+        public bool detectar_colision_plataforma(Ellipse ball, Rectangle plataforma)
         {
 
             Rect sd = new Rect(Canvas.GetLeft(plataforma), Canvas.GetTop(plataforma), plataforma.Width, plataforma.Height);
@@ -76,9 +76,9 @@ namespace ArkanoidProyecto.Controladores.Patron_observer
 
         }
 
-        public bool detectar_fuera_limite(Rectangle ball, Canvas element)
+        public bool detectar_fuera_limite(Ellipse ball, Canvas element)
         {
-            if (Canvas.GetTop(ball) + ball.Height >= (Math.Abs(element.Height - ball.Height)))
+            if (Canvas.GetTop(ball) + ball.Height >= (Math.Abs(element.Height + ball.Height)))
             {
 
                 return true;

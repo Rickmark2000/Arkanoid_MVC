@@ -262,8 +262,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextArkanoid.cs" />
-    <Compile Include="Jugador_repositorio.cs" />
+    <Compile Include="ContextoDB\ContextArkanoid.cs" />
+    <Compile Include="Repositorios\Jugador_repositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
