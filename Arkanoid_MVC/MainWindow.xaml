@@ -6,15 +6,13 @@
         xmlns:local="clr-namespace:Arkanoid_MVC"
         Name="ventana"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800"
-        SizeChanged="Window_SizeChanged">
-    <Grid Name="gridJuego">
-        <Canvas Name="CanvasJuego" Background="AliceBlue" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=Window}}" 
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="menu">
+        <Canvas  Name="CanvasJuego" Background="Beige" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=Window}}" 
         Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Window}}">
-            <Label x:Name="txtScore" Content="Puntuacion:0" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.713,0.015" Width="218"/>
+            <Button x:Name="empezar" Width="192" Height="35" Canvas.Top="128" Canvas.Left="304" ButtonBase.Click="empezar_partida" HorizontalAlignment="Left" VerticalAlignment="Top"></Button>
+            <Label Content="ARKANOID" Canvas.Left="304" Canvas.Top="33" Height="36" Width="192" HorizontalAlignment="Center" VerticalAlignment="Top" Background="White"/>
         </Canvas>
-        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="47,240,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copiar" Content="Label" HorizontalAlignment="Left" Margin="47,179,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

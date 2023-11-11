@@ -1,0 +1,18 @@
+﻿<Window x:Class="Arkanoid_MVC.Juego_arkanoid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Arkanoid_MVC"
+        mc:Ignorable="d"
+        Title="Juego_arkanoid" Height="450" Width="800" Name="ventana">
+    <Grid Name="gridJuego">
+        <Canvas Name="CanvasJuego" Background="AliceBlue" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=Window}}" 
+   Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Window}}">
+            <Label x:Name="txtScore" Content="Puntuacion:0" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.713,0.015" Width="218"/>
+        </Canvas>
+        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="47,240,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copiar" Content="Label" HorizontalAlignment="Left" Margin="47,179,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

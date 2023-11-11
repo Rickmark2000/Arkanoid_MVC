@@ -18,8 +18,9 @@ namespace Arkanoid_MVC.Aplicacion
 {
     public class Colisiones_figuras
     {
-       private IObservador_colision<Ellipse, Rectangle> observar = new ObservarColision();
-       private ColisionInterseccion interseccion = new ColisionInterseccion();
+        private IObservador_colision<Ellipse, Rectangle> observar = new ObservarColision();
+        private ColisionInterseccion interseccion = new ColisionInterseccion();
+
 
         public void colisiona(Ellipse bola,ref double posX,ref double posY,Canvas element,ref bool gameOver)
         {
@@ -48,7 +49,8 @@ namespace Arkanoid_MVC.Aplicacion
             switch (tipo)
             {
                 case EColision.EnPlataforma:
-                    interseccion.Colision_interseccion(bola, plataforma, ref posX,ref posY);
+                    interseccion.Colision_interseccionY(bola, plataforma, ref posY);
+                 
                     break;
          
             }
@@ -61,7 +63,8 @@ namespace Arkanoid_MVC.Aplicacion
 
             if(bloque!=null)
             {
-                interseccion.Colision_interseccion(bola, bloque, ref posX, ref posY);
+                interseccion.Colision_interseccionY(bola, bloque,ref posY);
+                interseccion.Colision_interseccionX(bola,bloque,ref posX);
             }
         }
 

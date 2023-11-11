@@ -137,3 +137,5 @@ C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\System.Text.Json.
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\System.ValueTuple.xml
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\DB\Arkanoid.ldf
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\DB\Arkanoid.mdf
+C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\obj\Debug\Juego_arkanoid.g.cs
+C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\obj\Debug\Juego_arkanoid.baml
