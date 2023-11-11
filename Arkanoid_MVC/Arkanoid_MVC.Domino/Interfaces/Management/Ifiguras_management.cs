@@ -8,14 +8,14 @@ using System.Windows.Shapes;
 
 namespace ArkanoidProyecto.Modelo.Interfaces.Managements
 {
-    public interface Ifiguras_management<T>:IDictionaryFigura<int, T>
+    public interface Ifiguras_management<T>:Ilista_figura<T>
     {
        
         void anadir(T objeto);
 
-        T buscar(int value);
+        T buscar(T value);
 
-        void eliminar(int value);
+        void eliminar(T value);
 
         List<T> ObtenerList();
 

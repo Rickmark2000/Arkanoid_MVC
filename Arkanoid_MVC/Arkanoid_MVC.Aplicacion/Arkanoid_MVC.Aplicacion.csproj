@@ -187,21 +187,22 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colisiones\ColisionInterseccion.cs" />
     <Compile Include="Controles\Controles.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Diseño\DisenoRectangulo.cs" />
     <Compile Include="Diseño\DisenoElipse.cs" />
     <Compile Include="Diseño\Diseno.cs" />
-    <Compile Include="Helpers\HelperColision.cs" />
-    <Compile Include="Helpers\HelperDiseno.cs" />
+    <Compile Include="Colisiones\Colisiones_figuras.cs" />
+    <Compile Include="Colisiones\ColisionBloque.cs" />
     <Compile Include="Juego\Juego.cs" />
     <Compile Include="Management\BloquesManagement.cs" />
     <Compile Include="Partida\Partida.cs" />
     <Compile Include="Patron factory\Elipse_factory.cs" />
     <Compile Include="Patron factory\Figuras_factory.cs" />
     <Compile Include="Patron factory\Rectangle_factory.cs" />
-    <Compile Include="Patron observer\Obserbar_colisiones.cs" />
+    <Compile Include="Patron observer\ObservarColision.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

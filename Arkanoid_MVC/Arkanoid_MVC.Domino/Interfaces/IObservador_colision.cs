@@ -11,8 +11,10 @@ using System.Windows.Shapes;
 
 namespace ArkanoidProyecto.Modelo.Interfaces
 {
-    public interface IObservador_colision<R,E>
+    public interface IObservador_colision<I,E> where I : Shape
     {
-       Enum estado(E entity, Canvas element,R entity2, Ifiguras_management<Rectangle> rect);
+       EColision estado(I figura, Canvas element);
+
+        EColision estado(I figura, E element);
     }
 }

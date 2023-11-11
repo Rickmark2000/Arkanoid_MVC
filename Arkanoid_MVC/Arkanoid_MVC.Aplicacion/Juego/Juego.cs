@@ -19,7 +19,7 @@ namespace Arkanoid_MVC.Aplicacion
     public class Juego
     {
 
-        public Ellipse colocar_bola(double with,double height, Canvas canvas_juego)
+        public Ellipse crear_bola(double with,double height, Canvas canvas_juego)
         {
             DisenoElipse bolaDiseño;
             Figura_Velocidad bola = new Figura_Velocidad(TipoFigura.Elipse);
@@ -31,7 +31,7 @@ namespace Arkanoid_MVC.Aplicacion
             return (Ellipse)bolaDiseño.Implementar(ref canvas_juego, Colors.Red, Colors.Black, 2);
         }
 
-        public BloquesManagement colocar_bloques(int num_bloques, Canvas canvas_juego,double with)
+        public BloquesManagement crear_bloques(int num_bloques, Canvas canvas_juego,double with)
         {
             Rectangle[] bloques = new Rectangle[num_bloques];
             Ifiguras_management<Rectangle> bloquesManagement = new BloquesManagement();
@@ -70,7 +70,7 @@ namespace Arkanoid_MVC.Aplicacion
         }
 
 
-        public Rectangle colocar_plataforma(double with, double height, Canvas canvas_juego)
+        public Rectangle crear_plataforma(double with, double height, Canvas canvas_juego)
         {
             DisenoRectangulo dieseñoPlataforma;
             Figura_Velocidad plataforma = new Figura_Velocidad(TipoFigura.Rectangulo);

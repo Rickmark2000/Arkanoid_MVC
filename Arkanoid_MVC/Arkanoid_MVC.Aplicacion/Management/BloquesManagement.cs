@@ -13,36 +13,36 @@ namespace ArkanoidProyecto.Controladores.Managements
     public class BloquesManagement : Ifiguras_management<Rectangle>
     {
 
-        public Dictionary<int, Rectangle> lista_figura { get; }
+        public List< Rectangle> listaObjetos { get; }
 
         public BloquesManagement()
         {
-            lista_figura = new Dictionary<int, Rectangle>();
+            listaObjetos = new List<Rectangle>();
         }
 
         public void anadir(Rectangle objeto)
         {
-            int id = lista_figura.Count;
-            lista_figura.Add(id+1, objeto);
+            listaObjetos.Add(objeto);
         }
 
-        public Rectangle buscar(int value)
+        public Rectangle buscar(Rectangle value)
         {
-            if (lista_figura.ContainsKey(value))
+            if (listaObjetos.Contains(value))
             {
-                return lista_figura.First(n => n.Key == value).Value;
+                return listaObjetos.Find(n=> n.Equals(value));
             }
             else { return null; }
         }
 
-        public void eliminar(int value)
+        public void eliminar(Rectangle value)
         {
-            lista_figura.Remove(value);
+            listaObjetos.Remove(value);
         }
 
         public List<Rectangle> ObtenerList()
         {
-            return lista_figura.Values.ToList();
+            return listaObjetos.ToList();
         }
+        
     }
 }

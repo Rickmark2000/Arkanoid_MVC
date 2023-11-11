@@ -187,7 +187,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\EstadoBola.cs" />
+    <Compile Include="Enum\EColision.cs" />
     <Compile Include="Enum\TipoFigura.cs" />
     <Compile Include="Interfaces\Factory\Ifiguras_Factory.cs" />
     <Compile Include="Interfaces\Icomprobar_repetido.cs" />

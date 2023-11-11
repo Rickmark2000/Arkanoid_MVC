@@ -33,6 +33,8 @@ using Arkanoid_MVC.Domino.Modelos;
 using ArkanoidProyecto.Modelo.Interfaces.Managements;
 using ArkanoidProyecto.Controladores.Managements;
 using ArkanoidProyecto.Modelo.Interfaces;
+using Arkanoid_MVC.Aplicacion.Helpers;
+using Arkanoid_MVC.Aplicacion.Colisiones;
 
 namespace Arkanoid_MVC
 {
@@ -42,7 +44,7 @@ namespace Arkanoid_MVC
         private bool isGameOver;
         private DispatcherTimer timer;
 
-        private double posBolaInicialX, posBolaInicialY, posPlataformaX;
+        private double BolaInicialX, BolaInicialY, PlataformaInicialX;
         double actualBolaX = 2, actualBolaY = 2;
 
         private Juego juego = new Juego();
@@ -51,23 +53,18 @@ namespace Arkanoid_MVC
         private Ellipse bola;
         private Ifiguras_management<Rectangle> bloquesManagement;
 
-
-        private IObservador_colision<Rectangle, Ellipse> comprobarColisiones = new Obserbar_colisiones();
-        private HelperColision helperColision = new HelperColision();
-
-
+        private IObservador_colision<Ellipse, Rectangle> comprobarColisiones = new ObservarColision();
         private IRepositorio<Jugadores> jugador_Repositorio;
 
         private Controles controles;
 
-
-        private Enum estado_bola;
+        
+        private Colisiones_figuras colision = new Colisiones_figuras();
 
         public MainWindow()
         {
             InitializeComponent();
             controles = new Controles(ventana, 6);
-
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
             jugador_Repositorio = new Jugador_repositorio(connectionString);
 
@@ -82,14 +79,14 @@ namespace Arkanoid_MVC
 
         private void prepararJuego()
         {
-            bola = juego.colocar_bola(Width, Height, CanvasJuego);
-            plataforma_jugador = juego.colocar_plataforma(Width, Height, CanvasJuego);
-            bloquesManagement = juego.colocar_bloques(9, CanvasJuego, Width);
+            bola = juego.crear_bola(Width, Height, CanvasJuego);
+            plataforma_jugador = juego.crear_plataforma(Width, Height, CanvasJuego);
+            bloquesManagement = juego.crear_bloques(9, CanvasJuego, Width);
 
-            posBolaInicialY = Canvas.GetTop(bola);
-            posBolaInicialX = Canvas.GetLeft(bola);
+            BolaInicialY = Canvas.GetTop(bola);
+            BolaInicialX = Canvas.GetLeft(bola);
 
-            posPlataformaX = Canvas.GetLeft(plataforma_jugador);
+            PlataformaInicialX = Canvas.GetLeft(plataforma_jugador);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -97,18 +94,18 @@ namespace Arkanoid_MVC
 
             if (!isGameOver)
             {
-                Canvas.SetLeft(plataforma_jugador, posPlataformaX);
-                controles.mover(plataforma_jugador, ref posPlataformaX, CanvasJuego);
+                Canvas.SetLeft(plataforma_jugador, PlataformaInicialX);
+                controles.mover(plataforma_jugador, ref PlataformaInicialX, CanvasJuego);
 
 
-                Canvas.SetTop(bola, posBolaInicialY += actualBolaY);
-                Canvas.SetLeft(bola, posBolaInicialX += actualBolaX);
-                estado_bola = comprobarColisiones.estado(bola, CanvasJuego, plataforma_jugador, bloquesManagement);
-                helperColision.ColisionBola(estado_bola, ref actualBolaX, ref actualBolaY);
+                Canvas.SetTop(bola, BolaInicialY += actualBolaY);
+                Canvas.SetLeft(bola, BolaInicialX += actualBolaX);
 
 
+                colision.colisiona(bola, ref actualBolaX, ref actualBolaY, plataforma_jugador);
+                colision.colisiona(bola, ref actualBolaX, ref actualBolaY, CanvasJuego, ref isGameOver);
+                colision.colisiona(bola, ref actualBolaX, ref actualBolaY, CanvasJuego, bloquesManagement);
 
-                isGameOver = estado_bola.ToString() == EstadoBola.fuera.ToString() ? true : false;
             }
             else
             {
