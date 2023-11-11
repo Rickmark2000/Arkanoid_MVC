@@ -51,7 +51,7 @@ namespace Arkanoid_MVC
         private Controles_jugador controles;
 
 
-        private Colisiones_figuras colision = new Colisiones_figuras();
+        private ColisionAplicar colision = new ColisionAplicar();
 
         public Juego_arkanoid()
         {

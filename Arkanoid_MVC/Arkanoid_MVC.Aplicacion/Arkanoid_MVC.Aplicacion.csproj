@@ -191,18 +191,18 @@
     <Compile Include="Controles\Controles_jugador.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diseño\DisenoRectangulo.cs" />
-    <Compile Include="Diseño\DisenoElipse.cs" />
-    <Compile Include="Diseño\Diseno.cs" />
-    <Compile Include="Colisiones\Colisiones_figuras.cs" />
+    <Compile Include="Diseño Figuras\DisenoRectangulo.cs" />
+    <Compile Include="Diseño Figuras\DisenoElipse.cs" />
+    <Compile Include="Diseño Figuras\Diseno.cs" />
+    <Compile Include="Colisiones\ColisionAplicar.cs" />
     <Compile Include="Colisiones\ColisionBloque.cs" />
     <Compile Include="Juego\Juego.cs" />
     <Compile Include="Management\BloquesManagement.cs" />
-    <Compile Include="Partida\Partida.cs" />
-    <Compile Include="Patron factory\Elipse_factory.cs" />
-    <Compile Include="Patron factory\Figuras_factory.cs" />
-    <Compile Include="Patron factory\Rectangle_factory.cs" />
-    <Compile Include="Patron observer\ObservarColision.cs" />
+    <Compile Include="Juego\Partida\Partida.cs" />
+    <Compile Include="Factory\Elipse_factory.cs" />
+    <Compile Include="Factory\Figuras_factory.cs" />
+    <Compile Include="Factory\Rectangle_factory.cs" />
+    <Compile Include="Observer\ObservarColision.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
