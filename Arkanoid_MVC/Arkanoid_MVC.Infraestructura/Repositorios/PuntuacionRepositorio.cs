@@ -20,19 +20,15 @@ namespace Arkanoid_MVC.Infraestructura.Repositorios
             listaObjetos = context.Puntuaciones.ToList();
         }
 
-
-
         public I buscar(I entity)
         {
-            I jugador;
-            return jugador = listaObjetos.Find(n => n == entity);
+            return listaObjetos.Find(n => n == entity);
         }
 
-        public async Task eliminar(I entity)
+        public void eliminar(I entity)
         {
-            I jugador;
-            jugador = listaObjetos.Find(n => n == entity);
-            context.jugadores.Remove(jugador);
+            I jugador = buscar(entity);
+            context.Puntuaciones.Remove(jugador);
             context.SaveChanges();
 
         }
@@ -42,19 +38,16 @@ namespace Arkanoid_MVC.Infraestructura.Repositorios
             return listaObjetos;
         }
 
-        public async Task registrar(I entity)
+        public void registrar(I entity)
         {
-            if (!repetido(entity))
-            {
-                context.jugadores.Add(entity);
-                context.SaveChanges();
-            }
+            context.Puntuaciones.Add(entity);
+            context.SaveChanges();
 
         }
 
         public bool repetido(I entity)
         {
-            return listaObjetos.Contains(entity);
+            return listaObjetos.Any(e => e.Equals(entity));
         }
     }
 }

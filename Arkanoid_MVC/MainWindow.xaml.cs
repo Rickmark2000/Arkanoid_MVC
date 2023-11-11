@@ -75,8 +75,9 @@ namespace Arkanoid_MVC
             jugador_Repositorio = new JugadorRepositorio<Jugadores>(connectionString);
             puntuacion_repositorio = new PuntuacionRepositorio<Puntuaciones>(connectionString);
 
-            puntuacion_repositorio.registrar(new Puntuaciones(1,1,23,34));
-            label.Content = jugador_Repositorio.leer().Count;
+      puntuacion_repositorio.registrar(new Puntuaciones(4,1,23,23));
+
+            label.Content = puntuacion_repositorio.leer().Count;
             prepararJuego();
 
             timer = new DispatcherTimer();
@@ -120,6 +121,7 @@ namespace Arkanoid_MVC
             else
             {
                 timer.Stop();
+
             }
         }
 
