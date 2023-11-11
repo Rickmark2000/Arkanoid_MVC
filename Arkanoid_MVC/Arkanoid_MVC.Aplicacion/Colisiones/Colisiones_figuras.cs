@@ -56,13 +56,14 @@ namespace Arkanoid_MVC.Aplicacion
             }
         }
 
-        public void colisiona(Ellipse bola, ref double posX, ref double posY,Canvas element,Ifiguras_management<Rectangle> bloques)
+        public void colisiona(Ellipse bola, ref double posX, ref double posY,ref int score,Canvas element,Ifiguras_management<Rectangle> bloques)
         {
             ColisionBloque colisionBloque = new ColisionBloque();
             Rectangle bloque = colisionBloque.Colision_Bloque(bloques,element,bola);
 
             if(bloque!=null)
             {
+                score++;
                 interseccion.Colision_interseccionY(bola, bloque,ref posY);
                 interseccion.Colision_interseccionX(bola,bloque,ref posX);
             }

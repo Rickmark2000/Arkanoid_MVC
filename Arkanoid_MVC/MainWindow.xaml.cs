@@ -49,7 +49,10 @@ namespace Arkanoid_MVC
         {
 
             InitializeComponent();
+            Title = "Menu principal";
             empezar.Content = "Empezar partida";
+            salir.Content = "Salir";
+            score.Content = "Score Board";
         
         }
 
@@ -60,5 +63,16 @@ namespace Arkanoid_MVC
             this.Close();
         }
 
+        private void salir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void score_Click(object sender, RoutedEventArgs e)
+        {
+            ScoreWindow score = new ScoreWindow();
+            score.Show();
+
+        }
     }
 }

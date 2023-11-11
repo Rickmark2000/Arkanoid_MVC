@@ -79,7 +79,7 @@ namespace ArkanoidProyecto.Controladores
 
                     colision.colisiona(bola, ref actualBolaX, ref actualBolaY, plataforma_jugador);
                     colision.colisiona(bola, ref actualBolaX, ref actualBolaY, CanvasJuego, ref isGameOver);
-                    colision.colisiona(bola, ref actualBolaX, ref actualBolaY, CanvasJuego, bloques);
+                   // colision.colisiona(bola, ref actualBolaX, ref actualBolaY, ref s ,CanvasJuego, bloques);
 
                     Thread.Sleep(tiempo);
                 }

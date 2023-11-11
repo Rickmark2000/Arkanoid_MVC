@@ -30,6 +30,11 @@ namespace ArkanoidProyecto.Controladores.Controles
                 goLeft = false;
             }
             else if (e.Key == Key.Right) { goRight = false; }
+
+            if(e.Key == Key.Escape)
+            {
+
+            }
         }
 
         private void PreviewKeyDownHandler(object sender, KeyEventArgs e)

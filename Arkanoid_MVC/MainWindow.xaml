@@ -10,8 +10,12 @@
     <Grid x:Name="menu">
         <Canvas  Name="CanvasJuego" Background="Beige" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=Window}}" 
         Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Window}}">
-            <Button x:Name="empezar" Width="192" Height="35" Canvas.Top="128" Canvas.Left="304" ButtonBase.Click="empezar_partida" HorizontalAlignment="Left" VerticalAlignment="Top"></Button>
-            <Label Content="ARKANOID" Canvas.Left="304" Canvas.Top="33" Height="36" Width="192" HorizontalAlignment="Center" VerticalAlignment="Top" Background="White"/>
+            <Button x:Name="empezar" Width="192" Height="35" Canvas.Top="147" Canvas.Left="500" ButtonBase.Click="empezar_partida" HorizontalAlignment="Left" VerticalAlignment="Top"></Button>
+            <Label Content="ARKANOID" Canvas.Left="472" Canvas.Top="47" Height="56" Width="248" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   FontSize="26" FontFamily="Times new roman" />
+            <Button x:Name="score" Width="192" Height="35" Canvas.Left="500" Canvas.Top="217" HorizontalAlignment="Center" VerticalAlignment="Center" Click="score_Click"></Button>
+            <Button x:Name="salir" Width="192" Height="35" Canvas.Left="500" Canvas.Top="297" Click="salir_Click" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         </Canvas>
 
     </Grid>

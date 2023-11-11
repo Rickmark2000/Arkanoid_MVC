@@ -36,6 +36,7 @@ namespace Arkanoid_MVC
 
         private double BolaInicialX, BolaInicialY, PlataformaInicialX;
         double actualBolaX = 2, actualBolaY = 2;
+        private int score = 0;
 
         private Juego juego = new Juego();
 
@@ -59,9 +60,7 @@ namespace Arkanoid_MVC
 
 
             controles = new Controles_jugador(ventana, 6);
-            string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
-            jugador_Repositorio = new JugadorRepositorio<Jugadores>(connectionString);
-            puntuacion_repositorio = new PuntuacionRepositorio<Puntuaciones>(connectionString);
+         
 
             prepararJuego();
 
@@ -69,7 +68,6 @@ namespace Arkanoid_MVC
             timer.Interval = TimeSpan.FromMilliseconds(6);
             timer.Tick += Timer_Tick;
             timer.Start();
-
 
         }
 
@@ -88,7 +86,7 @@ namespace Arkanoid_MVC
         private void Timer_Tick(object sender, EventArgs e)
         {
 
-            if (!isGameOver)
+            if (!isGameOver && bloques.ObtenerList().Count>0)
             {
                 Canvas.SetLeft(plataforma_jugador, PlataformaInicialX);
                 controles.mover(plataforma_jugador, ref PlataformaInicialX, CanvasJuego);
@@ -97,17 +95,20 @@ namespace Arkanoid_MVC
                 Canvas.SetTop(bola, BolaInicialY += actualBolaY);
                 Canvas.SetLeft(bola, BolaInicialX += actualBolaX);
 
-                txtScore.Content = actualBolaX +" " +actualBolaY;
+                txtScore.Content = "Puntuación: " +score;
 
                 colision.colisiona(bola, ref actualBolaX, ref actualBolaY, plataforma_jugador);
                 colision.colisiona(bola, ref actualBolaX, ref actualBolaY, CanvasJuego, ref isGameOver);
-                colision.colisiona(bola, ref actualBolaX, ref actualBolaY, CanvasJuego, bloques);
+                colision.colisiona(bola, ref actualBolaX, ref actualBolaY, ref score,CanvasJuego, bloques);
 
             }
             else
             {
                 timer.Stop();
-
+                MessageBox.Show("Fin de partida. Puntuacion: "+score);
+                MainWindow menu = new MainWindow();
+                menu.Show();
+                this.Close();
             }
         }
     }
