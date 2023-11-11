@@ -188,7 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Colisiones\ColisionInterseccion.cs" />
-    <Compile Include="Controles\Controles.cs" />
+    <Compile Include="Controles\Controles_jugador.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Diseño\DisenoRectangulo.cs" />

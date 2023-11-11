@@ -193,7 +193,7 @@
     <Compile Include="Interfaces\Icomprobar_repetido.cs" />
     <Compile Include="Interfaces\IDisenoFigura.cs" />
     <Compile Include="Interfaces\Listas\IDictionaryFigura.cs" />
-    <Compile Include="Interfaces\Iinformacion.cs" />
+    <Compile Include="Interfaces\IPartida.cs" />
     <Compile Include="Interfaces\Listas\Ilista_figura.cs" />
     <Compile Include="Interfaces\IObservador_colision.cs" />
     <Compile Include="Interfaces\Management\Ifiguras_management.cs" />
@@ -204,7 +204,7 @@
     <Compile Include="Modelos\Figura_Velocidad.cs" />
     <Compile Include="Modelos\Modelos DB\Jugadores.cs" />
     <Compile Include="Modelos\Modelos DB\Password.cs" />
-    <Compile Include="Modelos\Modelos DB\Puntuacion.cs" />
+    <Compile Include="Modelos\Modelos DB\Puntuaciones.cs" />
     <Compile Include="Modelos\Modelos DB\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

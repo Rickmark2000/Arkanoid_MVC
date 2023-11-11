@@ -263,7 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextoDB\ContextArkanoid.cs" />
-    <Compile Include="Repositorios\Jugador_repositorio.cs" />
+    <Compile Include="Repositorios\JugadorRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -277,6 +277,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositorios\PuntuacionRepositorio.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
