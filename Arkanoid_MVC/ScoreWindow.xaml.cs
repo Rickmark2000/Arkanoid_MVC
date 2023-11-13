@@ -38,16 +38,12 @@ namespace Arkanoid_MVC
             */
             
             
-
-            string consulta = "select u.Id,u.usuario,j.nombre,p.puntuacion,j.vidas " +
-              "from jugadores as j inner join puntuaciones as p on p.idJugador = j.id inner" +
-              " join Usuarios as u on u.Id = j.idUsuario WHERE j.nombre = 'Roriru'";
-
-            string consulta2 = "select * " +
-              "from jugadores";
+            string consulta = "select u.Id,u.nombre,j.nombre,p.puntuacion,j.vidas " +
+              "from jugadores j INNER JOIN usuarios u on j.idUsuario = u.Id " +
+              "inner join puntuaciones p on p.idJugador = j.id";
 
 
-            db_controller.realizar_consulta(consulta2,datos);
+            db_controller.realizar_consulta(consulta,datos);
 
         }
 

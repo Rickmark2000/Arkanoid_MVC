@@ -100,7 +100,7 @@ namespace Arkanoid_MVC {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Arkanoid_MVC;component/juego_arkanoid.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Arkanoid_MVC.Vista;component/juego_arkanoid.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\Juego_arkanoid.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

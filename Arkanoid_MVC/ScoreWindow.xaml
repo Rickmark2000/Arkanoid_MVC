@@ -10,7 +10,7 @@
         <DataGrid x:Name="datos" AutoGenerateColumns="False" ItemsSource="{Binding lista_datos}" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Usuario" Binding="{Binding Id}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Jugador" Binding="{Binding idUsuario}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Jugador" Binding="{Binding nombre}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Puntuacion" Binding="{Binding puntuacion}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Vidas" Binding="{Binding vidas}"></DataGridTextColumn>
