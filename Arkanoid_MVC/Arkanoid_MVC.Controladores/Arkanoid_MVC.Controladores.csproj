@@ -60,6 +60,15 @@
     <Compile Include="Factory\Elipse_factory.cs" />
     <Compile Include="Factory\Figuras_factory.cs" />
     <Compile Include="Factory\Rectangle_factory.cs" />
+    <Compile Include="Interfaces\Factory\Ifiguras_Factory.cs" />
+    <Compile Include="Interfaces\Icomprobar_repetido.cs" />
+    <Compile Include="Interfaces\IDisenoFigura.cs" />
+    <Compile Include="Interfaces\IObservador_colision.cs" />
+    <Compile Include="Interfaces\IPartida.cs" />
+    <Compile Include="Interfaces\Listas\IDictionaryFigura.cs" />
+    <Compile Include="Interfaces\Listas\Ilista_figura.cs" />
+    <Compile Include="Interfaces\Management\Ifiguras_management.cs" />
+    <Compile Include="Interfaces\Repositorios\IRepositorio.cs" />
     <Compile Include="Juego\Juego.cs" />
     <Compile Include="Juego\Partida\Partida.cs" />
     <Compile Include="Management\BloquesManagement.cs" />
