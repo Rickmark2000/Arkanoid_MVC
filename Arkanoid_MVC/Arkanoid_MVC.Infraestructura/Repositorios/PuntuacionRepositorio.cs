@@ -25,6 +25,11 @@ namespace Arkanoid_MVC.Infraestructura.Repositorios
             return listaObjetos.Find(n => n == entity);
         }
 
+        public I buscar(int value)
+        {
+            return listaObjetos.Find(n => n.id == value);
+        }
+
         public void eliminar(I entity)
         {
             I jugador = buscar(entity);
@@ -40,6 +45,10 @@ namespace Arkanoid_MVC.Infraestructura.Repositorios
 
         public void registrar(I entity)
         {
+            while (repetido(entity.id))
+            {
+                entity.id++;
+            }
             context.Puntuaciones.Add(entity);
             context.SaveChanges();
 
@@ -48,6 +57,10 @@ namespace Arkanoid_MVC.Infraestructura.Repositorios
         public bool repetido(I entity)
         {
             return listaObjetos.Any(e => e.Equals(entity));
+        }
+        public bool repetido(int entity)
+        {
+            return listaObjetos.Any(e => e.id.Equals(entity));
         }
     }
 }

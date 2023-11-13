@@ -10,11 +10,14 @@ using System.Threading.Tasks;
 
 namespace ArkanoidProyecto.Modelo.Patron_repositorio
 {
-    public class ContextArkanoid<I>:DbContext where I : class
+    public class ContextArkanoid<I> : DbContext where I : class
     {
         private string _context;
         public DbSet<I> jugadores { get; set; }
-        public DbSet<I> Puntuaciones {  get; set; }
+        public DbSet<I> Puntuaciones { get; set; }
+        public DbSet<I> passwords { get; set; }
+        public DbSet<I> datosBancarios { get; set; }
+        public DbSet<I> Usuarios { get; set; }
 
 
         public ContextArkanoid(string context)

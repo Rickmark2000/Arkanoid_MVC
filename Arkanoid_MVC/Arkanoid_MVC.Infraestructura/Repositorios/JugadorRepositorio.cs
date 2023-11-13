@@ -5,6 +5,7 @@ using ArkanoidProyecto.Modelo.Interfaces;
 using ArkanoidProyecto.Modelo.Interfaces.Repositorios;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Metadata;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,6 +28,11 @@ namespace ArkanoidProyecto.Modelo.Patron_repositorio
             return listaObjetos.Find(n => n == entity);
         }
 
+        public I buscar(int value)
+        {
+            return listaObjetos.Find(n => n.id == value);
+        }
+
         public void eliminar(I entity)
         {
             I jugador = buscar(entity);
@@ -42,6 +48,10 @@ namespace ArkanoidProyecto.Modelo.Patron_repositorio
 
         public void registrar(I entity)
         {
+            while (repetido(entity.id))
+            {
+                entity.id++;
+            }
             context.jugadores.Add(entity);
             context.SaveChanges();
 
@@ -50,6 +60,11 @@ namespace ArkanoidProyecto.Modelo.Patron_repositorio
         public bool repetido(I entity)
         {
             return listaObjetos.Any(e => e.Equals(entity));
+        }
+
+        public bool repetido(int entity)
+        {
+            return listaObjetos.Any(e => e.id.Equals(entity));
         }
     }
 }

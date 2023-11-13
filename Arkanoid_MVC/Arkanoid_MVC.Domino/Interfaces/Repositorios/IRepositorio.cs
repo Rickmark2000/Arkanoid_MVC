@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace ArkanoidProyecto.Modelo.Interfaces.Repositorios
 {
-    public interface IRepositorio<Entity>: Ilista_figura<Entity>, Icomprobar_repetido<Entity> where Entity : class
+    public interface IRepositorio<Entity>: Ilista_figura<Entity>,Icomprobar_repetido<int> where Entity : class
     {
         void registrar(Entity entity);
 
         void eliminar(Entity entity);
 
         Entity buscar(Entity entity);
+
+        Entity buscar(int value);
 
         List<Entity> leer();
 

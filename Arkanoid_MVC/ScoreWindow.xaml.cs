@@ -33,6 +33,8 @@ namespace Arkanoid_MVC
             string connectionString = ConfigurationManager.ConnectionStrings["Arkanoid"].ConnectionString;
             jugadores = new JugadorRepositorio<Jugadores>(connectionString);
             puntuaciones = new PuntuacionRepositorio<Puntuaciones>(connectionString);
+            Jugadores j = new Jugadores(1,1, 23, "Roriru", 3);
+            jugadores.registrar(j);
             datos.ItemsSource = jugadores.leer();
             
         }
