@@ -1,19 +1,9 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using System.Configuration;
 using Arkanoid_MVC.Controladores.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
 using Arkanoid_MVC.Controladores.Controles;
@@ -23,9 +13,6 @@ using Arkanoid_MVC.Controladores.Observer;
 
 namespace Arkanoid_MVC
 {
-    /// <summary>
-    /// Lógica de interacción para Juego_arkanoid.xaml
-    /// </summary>
     public partial class Juego_arkanoid : Window
     {
         private bool isGameOver;
@@ -53,11 +40,7 @@ namespace Arkanoid_MVC
         public Juego_arkanoid()
         {
             InitializeComponent();
-
-
-
             controles = new Controles_jugador(ventana, 6);
-         
 
             prepararJuego();
 

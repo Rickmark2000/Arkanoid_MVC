@@ -60,7 +60,7 @@ namespace Arkanoid_MVC {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Arkanoid_MVC;component/scorewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Arkanoid_MVC.Vista;component/scorewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ScoreWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

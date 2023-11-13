@@ -2,12 +2,6 @@
 using Arkanoid_MVC.Controladores.Interfaces;
 using Arkanoid_MVC.Controladores.Observer;
 using Arkanoid_MVC.Modelos.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 

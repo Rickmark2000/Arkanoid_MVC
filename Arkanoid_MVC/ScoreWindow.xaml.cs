@@ -3,25 +3,12 @@ using Arkanoid_MVC.Controladores.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
 using Arkanoid_MVC.Modelos.Repositorios;
 using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Arkanoid_MVC
 {
-    /// <summary>
-    /// Lógica de interacción para ScoreWindow.xaml
-    /// </summary>
+
     public partial class ScoreWindow : Window
     {
         private IRepositorio<Jugadores> jugadores;

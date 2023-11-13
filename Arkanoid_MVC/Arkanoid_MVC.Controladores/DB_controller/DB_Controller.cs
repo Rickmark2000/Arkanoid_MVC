@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Windows.Controls;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Arkanoid_MVC.Controladores.Interfaces;
