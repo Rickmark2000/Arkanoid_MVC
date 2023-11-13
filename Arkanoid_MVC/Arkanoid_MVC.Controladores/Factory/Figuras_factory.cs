@@ -1,11 +1,11 @@
-﻿using Arkanoid_MVC.Controladores.Interfaces;
-using Arkanoid_MVC.Modelos.Enum;
+﻿using Arkanoid_MVC.Modelos.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Shapes;
+using Arkanoid_MVC.Modelos.Interfaces;
 
 namespace Arkanoid_MVC.Controladores.Factory
 {

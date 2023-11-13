@@ -1,5 +1,5 @@
 ﻿using Arkanoid_MVC.Controladores.Diseño_Figuras;
-using Arkanoid_MVC.Controladores.Interfaces;
+using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Controladores.Management;
 using Arkanoid_MVC.Modelos.Enum;
 using Arkanoid_MVC.Modelos.Modelos;

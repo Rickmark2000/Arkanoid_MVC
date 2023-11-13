@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using Arkanoid_MVC.Controladores.Interfaces;
+using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Modelos.Modelos;
 using Arkanoid_MVC.Controladores.Controles;
 using Arkanoid_MVC.Controladores.Colisiones;

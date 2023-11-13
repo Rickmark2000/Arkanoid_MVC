@@ -180,6 +180,15 @@
     <Compile Include="ContextoDB\ContextArkanoid.cs" />
     <Compile Include="Enum\EColision.cs" />
     <Compile Include="Enum\TipoFigura.cs" />
+    <Compile Include="Interfaces\Factory\Ifiguras_Factory.cs" />
+    <Compile Include="Interfaces\Icomprobar_repetido.cs" />
+    <Compile Include="Interfaces\IDisenoFigura.cs" />
+    <Compile Include="Interfaces\IObservador_colision.cs" />
+    <Compile Include="Interfaces\IPartida.cs" />
+    <Compile Include="Interfaces\Listas\IDictionaryFigura.cs" />
+    <Compile Include="Interfaces\Listas\Ilista_figura.cs" />
+    <Compile Include="Interfaces\Management\Ifiguras_management.cs" />
+    <Compile Include="Interfaces\Repositorios\IRepositorio.cs" />
     <Compile Include="Modelos\Figura.cs" />
     <Compile Include="Modelos\Figura_SinVelocidad.cs" />
     <Compile Include="Modelos\Figura_Velocidad.cs" />

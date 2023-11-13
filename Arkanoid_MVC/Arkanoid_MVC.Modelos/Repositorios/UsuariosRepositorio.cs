@@ -1,4 +1,4 @@
-﻿using Arkanoid_MVC.Controladores.Interfaces;
+﻿using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Modelos.ContextoDB;
 using Arkanoid_MVC.Modelos.Modelos;
 using System;

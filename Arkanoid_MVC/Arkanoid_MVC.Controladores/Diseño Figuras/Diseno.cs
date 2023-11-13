@@ -3,7 +3,7 @@ using System.Windows.Shapes;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Arkanoid_MVC.Controladores.Interfaces;
+using Arkanoid_MVC.Modelos.Interfaces;
 using System.Windows.Documents;
 using Arkanoid_MVC.Modelos.Modelos;
 

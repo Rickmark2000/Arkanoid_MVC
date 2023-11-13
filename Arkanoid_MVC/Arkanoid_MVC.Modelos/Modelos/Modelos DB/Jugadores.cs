@@ -15,27 +15,23 @@ namespace Arkanoid_MVC.Modelos.Modelos
 
         public int puntuacion { get; set; }
 
-        public string nombre {  get; set; }
+        public string nick {  get; set; }
 
         public int vidas {  get; set; }
 
-        public Jugadores(int id,int idUsuario, int puntuacion, string nombre, int vidas)
+        public Jugadores(int id,int idUsuario, int puntuacion, string nick, int vidas)
         {
             this.id = id;
             this.idUsuario = idUsuario;
             this.puntuacion = puntuacion;
-            this.nombre = nombre;
+            this.nick = nick;
             this.vidas = vidas;
         }
-
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
+        
 
         public override string ToString()
         {
-            return nombre + " "+puntuacion;
+            return nick + " "+puntuacion;
         }
     }
 }

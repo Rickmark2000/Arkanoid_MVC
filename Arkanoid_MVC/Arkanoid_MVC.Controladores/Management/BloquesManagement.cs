@@ -1,4 +1,4 @@
-﻿using Arkanoid_MVC.Controladores.Interfaces;
+﻿using Arkanoid_MVC.Modelos.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

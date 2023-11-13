@@ -1,5 +1,5 @@
 ﻿
-using Arkanoid_MVC.Controladores.Interfaces;
+using Arkanoid_MVC.Modelos.Interfaces;
 using Arkanoid_MVC.Controladores.Observer;
 using Arkanoid_MVC.Modelos.Enum;
 using System.Windows.Controls;

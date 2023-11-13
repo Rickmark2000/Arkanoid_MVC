@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using Arkanoid_MVC.Controladores.Interfaces;
+using Arkanoid_MVC.Modelos.Interfaces;
 
 namespace Arkanoid_MVC.Controladores.DB_Controller
 {

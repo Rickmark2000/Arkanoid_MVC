@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Shapes;
 using System.Windows;
-using Arkanoid_MVC.Controladores.Interfaces;
+using Arkanoid_MVC.Modelos.Interfaces;
 
 namespace Arkanoid_MVC.Controladores.Colisiones
 {
