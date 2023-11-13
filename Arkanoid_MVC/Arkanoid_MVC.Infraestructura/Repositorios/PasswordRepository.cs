@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Infraestructura.Repositorios
 {
-    public class PasswordRepository<I> : IRepositorio<I> where I : Password
+    public class PasswordRepository<I> : IRepositorio<I> where I : Passwords
     {
         private readonly ContextArkanoid<I> context;
         public List<I> listaObjetos { get; }

@@ -204,9 +204,9 @@
     <Compile Include="Modelos\Figura_SinVelocidad.cs" />
     <Compile Include="Modelos\Figura_Velocidad.cs" />
     <Compile Include="Modelos\Modelos DB\Jugadores.cs" />
-    <Compile Include="Modelos\Modelos DB\Password.cs" />
+    <Compile Include="Modelos\Modelos DB\Passwords.cs" />
     <Compile Include="Modelos\Modelos DB\Puntuaciones.cs" />
-    <Compile Include="Modelos\Modelos DB\Usuario.cs" />
+    <Compile Include="Modelos\Modelos DB\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

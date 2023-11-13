@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Arkanoid_MVC.Infraestructura.Repositorios
 {
-    public class UsuariosRepositorio<I> : IRepositorio<I> where I : Usuario
+    public class UsuariosRepositorio<I> : IRepositorio<I> where I : Usuarios
     {
         private readonly ContextArkanoid<I> context;
         public List<I> listaObjetos { get; }
@@ -49,7 +49,7 @@ namespace Arkanoid_MVC.Infraestructura.Repositorios
             {
                 entity.id++;
             }
-            context.passwords.Add(entity);
+            context.Usuarios.Add(entity);
             context.SaveChanges();
 
         }
