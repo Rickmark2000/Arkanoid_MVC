@@ -250,17 +250,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Arkanoid_MVC.Aplicacion\Arkanoid_MVC.Aplicacion.csproj">
-      <Project>{7065f4cd-ee4a-493d-bc9d-1eeaac0fa87b}</Project>
-      <Name>Arkanoid_MVC.Aplicacion</Name>
+    <ProjectReference Include="Arkanoid_MVC.Controladores\Arkanoid_MVC.Controladores.csproj">
+      <Project>{0309C32A-DD2C-432F-9828-B77EE21C60F9}</Project>
+      <Name>Arkanoid_MVC.Controladores</Name>
     </ProjectReference>
-    <ProjectReference Include="Arkanoid_MVC.Domino\Arkanoid_MVC.Domino.csproj">
-      <Project>{32b83d48-959a-48b3-8713-bd1eacbd793b}</Project>
-      <Name>Arkanoid_MVC.Domino</Name>
-    </ProjectReference>
-    <ProjectReference Include="Arkanoid_MVC.Infraestructura\Arkanoid_MVC.Infraestructura.csproj">
-      <Project>{ac741407-ad41-4e58-ade2-eceef99a45e7}</Project>
-      <Name>Arkanoid_MVC.Infraestructura</Name>
+    <ProjectReference Include="Arkanoid_MVC.Modelos\Arkanoid_MVC.Modelos.csproj">
+      <Project>{5A40DD8D-B3B2-44FC-B292-37D7BF1F4156}</Project>
+      <Name>Arkanoid_MVC.Modelos</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

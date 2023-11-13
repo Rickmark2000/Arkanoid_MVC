@@ -16,9 +16,6 @@ C:\Users\ricardsanchez\source\repos\Arkanoid_MVC\Arkanoid_MVC\Arkanoid_MVC\obj\D
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.exe.config
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.exe
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.pdb
-C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Aplicacion.dll
-C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Domino.dll
-C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Infraestructura.dll
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\System.Threading.Tasks.Extensions.dll
@@ -45,10 +42,6 @@ C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Microsoft.Identit
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Microsoft.IdentityModel.Logging.dll
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\System.Buffers.dll
-C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Aplicacion.pdb
-C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Domino.pdb
-C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Infraestructura.pdb
-C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Infraestructura.dll.config
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Microsoft.EntityFrameworkCore.xml
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.xml
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
@@ -106,8 +99,6 @@ C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\System.Runtime.Co
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Microsoft.Extensions.Primitives.xml
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Aplicacion.dll.config
-C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Domino.dll.config
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Azure.Core.dll
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Azure.Identity.dll
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
@@ -141,3 +132,8 @@ C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\obj\Debug\Juego_arkanoid.g.
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\obj\Debug\Juego_arkanoid.baml
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\obj\Debug\ScoreWindow.g.cs
 C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\obj\Debug\ScoreWindow.baml
+C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Controladores.dll
+C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Modelos.dll
+C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Controladores.pdb
+C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Modelos.pdb
+C:\Users\ricardsanchez\source\repos\cxz\Arkanoid_MVC\bin\Debug\Arkanoid_MVC.Modelos.dll.config

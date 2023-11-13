@@ -1,13 +1,4 @@
-﻿using Arkanoid.Dominio.Modelos;
-using Arkanoid_MVC.Aplicacion;
-using Arkanoid_MVC.Infraestructura.Repositorios;
-using ArkanoidProyecto.Controladores.Controles;
-using ArkanoidProyecto.Controladores.Patron_observer;
-using ArkanoidProyecto.Modelo.Interfaces.Managements;
-using ArkanoidProyecto.Modelo.Interfaces.Repositorios;
-using ArkanoidProyecto.Modelo.Interfaces;
-using ArkanoidProyecto.Modelo.Patron_repositorio;
-using ArkanoidProyecto.Modelo;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +14,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Configuration;
+using Arkanoid_MVC.Controladores.Interfaces;
+using Arkanoid_MVC.Modelos.Modelos;
+using Arkanoid_MVC.Controladores.Controles;
+using Arkanoid_MVC.Controladores.Colisiones;
+using Arkanoid_MVC.Controladores.Juego;
+using Arkanoid_MVC.Controladores.Observer;
 
 namespace Arkanoid_MVC
 {
